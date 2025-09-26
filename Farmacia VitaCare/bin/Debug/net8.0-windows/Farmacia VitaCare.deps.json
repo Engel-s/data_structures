@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Farmacia VitaCare/1.0.0": {
+        "runtime": {
+          "Farmacia VitaCare.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Farmacia VitaCare/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
