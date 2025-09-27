@@ -17,3 +17,24 @@ C:\Users\Engels\Source\Repos\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.
 C:\Users\Engels\Source\Repos\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia VitaCare.pdb
 C:\Users\Engels\Source\Repos\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia VitaCare.genruntimeconfig.cache
 C:\Users\Engels\Source\Repos\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\ref\Farmacia VitaCare.dll
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\bin\Debug\net8.0-windows\Farmacia VitaCare.exe
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\bin\Debug\net8.0-windows\Farmacia VitaCare.deps.json
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\bin\Debug\net8.0-windows\Farmacia VitaCare.runtimeconfig.json
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\bin\Debug\net8.0-windows\Farmacia VitaCare.dll
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\bin\Debug\net8.0-windows\Farmacia VitaCare.pdb
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia_VitaCare.FormCompraVitaCare.resources
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia_VitaCare.FormPilas.resources
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia_VitaCare.Properties.Resources.resources
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia_VitaCare.Welcome.resources
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia VitaCare.csproj.GenerateResource.cache
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia VitaCare.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia VitaCare.AssemblyInfoInputs.cache
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia VitaCare.AssemblyInfo.cs
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia VitaCare.csproj.CoreCompileInputs.cache
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia VitaCare.sourcelink.json
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia VitaCare.dll
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\refint\Farmacia VitaCare.dll
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia VitaCare.pdb
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia VitaCare.genruntimeconfig.cache
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\ref\Farmacia VitaCare.dll
+C:\Users\Engels\Desktop\Farmacia VitaCare\Farmacia VitaCare\obj\Debug\net8.0-windows\Farmacia_VitaCare.Colas_Simples.resources

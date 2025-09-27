@@ -29,10 +29,9 @@ namespace Farmacia_VitaCare
         private void FormCompraVitaCare_Load(object sender, EventArgs e)
         {
             dtgcompras.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(21, 71, 130);
-
             dtgcompras.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-
             dtgcompras.EnableHeadersVisualStyles = false;
+            dtgcompras.AllowUserToAddRows = false;
 
 
             btnburbuja.Visible = false;
@@ -145,7 +144,7 @@ namespace Farmacia_VitaCare
                     return;
                 }
 
-                Compras[] temporal = new Compras[compras.Length + 1]; //Esto sirve para aumentar el tamano del arreglo xd
+                Compras[] temporal = new Compras[compras.Length + 1]; //Esto sirve para aumentar el tamano del arreglo 
                 for (int i = 0; i < compras.Length; i++)
                     temporal[i] = compras[i];//copia los elementos anteriores al nuevo arreglo
 
@@ -248,6 +247,13 @@ namespace Farmacia_VitaCare
             FormPilas formPilas = new FormPilas();
             formPilas.Show();
 
+            this.Hide();
+        }
+
+        private void simplesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Colas_Simples colas_Simples = new Colas_Simples();
+            colas_Simples.Show();
             this.Hide();
         }
     }

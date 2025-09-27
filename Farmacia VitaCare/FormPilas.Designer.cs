@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPilas));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             pictureBox1 = new PictureBox();
             label1 = new Label();
@@ -57,6 +57,7 @@
             txttotalpila = new TextBox();
             label8 = new Label();
             btnsalir = new PictureBox();
+            label9 = new Label();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelData.SuspendLayout();
@@ -78,6 +79,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(1197, 163);
             tableLayoutPanel1.TabIndex = 1;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // pictureBox1
             // 
@@ -144,9 +146,9 @@
             cmbproductopila.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbproductopila.FormattingEnabled = true;
             cmbproductopila.Items.AddRange(new object[] { "Paracetamol", "Ibuprofeno", "Aspirina", "Omeprazol", "Suero oral", "Alcohol etílico", "Agua oxigenada ", "Gasas estériles", "Gel antibacterial", "Condones", "Pruebas de embarazo", "Termómetros digitales", "Jarabes para la tos", "Banditas adhesivas", "Antidiarreicos", "Colirios", "Algodón" });
-            cmbproductopila.Location = new Point(242, 74);
+            cmbproductopila.Location = new Point(242, 77);
             cmbproductopila.Name = "cmbproductopila";
-            cmbproductopila.Size = new Size(195, 36);
+            cmbproductopila.Size = new Size(262, 36);
             cmbproductopila.TabIndex = 15;
             // 
             // btnagregarpila
@@ -166,7 +168,7 @@
             // txtcantidadpila
             // 
             txtcantidadpila.BorderStyle = BorderStyle.FixedSingle;
-            txtcantidadpila.Location = new Point(714, 75);
+            txtcantidadpila.Location = new Point(782, 75);
             txtcantidadpila.Multiline = true;
             txtcantidadpila.Name = "txtcantidadpila";
             txtcantidadpila.Size = new Size(173, 37);
@@ -175,7 +177,7 @@
             // txtpreciopila
             // 
             txtpreciopila.BorderStyle = BorderStyle.FixedSingle;
-            txtpreciopila.Location = new Point(474, 76);
+            txtpreciopila.Location = new Point(542, 76);
             txtpreciopila.Multiline = true;
             txtpreciopila.Name = "txtpreciopila";
             txtpreciopila.Size = new Size(173, 37);
@@ -193,7 +195,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(699, 104);
+            label7.Location = new Point(767, 104);
             label7.Name = "label7";
             label7.Size = new Size(0, 28);
             label7.TabIndex = 8;
@@ -201,7 +203,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(714, 44);
+            label5.Location = new Point(782, 44);
             label5.Name = "label5";
             label5.Size = new Size(100, 28);
             label5.TabIndex = 6;
@@ -210,7 +212,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(474, 44);
+            label4.Location = new Point(542, 44);
             label4.Name = "label4";
             label4.Size = new Size(75, 28);
             label4.TabIndex = 5;
@@ -272,21 +274,21 @@
             dtgcompraspila.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgcompraspila.BackgroundColor = Color.White;
             dtgcompraspila.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(14, 47, 86);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dtgcompraspila.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(14, 47, 86);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dtgcompraspila.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dtgcompraspila.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgcompraspila.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dtgcompraspila.GridColor = Color.FromArgb(17, 141, 240);
             dtgcompraspila.Location = new Point(6, 438);
             dtgcompraspila.Name = "dtgcompraspila";
             dtgcompraspila.RowHeadersWidth = 51;
-            dtgcompraspila.Size = new Size(1017, 251);
+            dtgcompraspila.Size = new Size(1017, 230);
             dtgcompraspila.TabIndex = 20;
             // 
             // Column1
@@ -352,12 +354,26 @@
             btnsalir.TabStop = false;
             btnsalir.Click += btnsalir_Click;
             // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label9.AutoSize = true;
+            label9.Font = new Font("Candara", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.Black;
+            label9.Location = new Point(12, 677);
+            label9.Name = "label9";
+            label9.Size = new Size(223, 21);
+            label9.TabIndex = 24;
+            label9.Text = "Elaborado por: Engel Chavarria";
+            label9.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // FormPilas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1196, 701);
+            Controls.Add(label9);
             Controls.Add(txttotalpila);
             Controls.Add(label8);
             Controls.Add(btnsalir);
@@ -413,5 +429,6 @@
         private TextBox txttotalpila;
         private Label label8;
         private PictureBox btnsalir;
+        private Label label9;
     }
 }

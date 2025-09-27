@@ -205,9 +205,9 @@
             cmbproducto.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbproducto.FormattingEnabled = true;
             cmbproducto.Items.AddRange(new object[] { "Paracetamol", "Ibuprofeno", "Aspirina", "Omeprazol", "Suero oral", "Alcohol etílico", "Agua oxigenada ", "Gasas estériles", "Gel antibacterial", "Condones", "Pruebas de embarazo", "Termómetros digitales", "Jarabes para la tos", "Banditas adhesivas", "Antidiarreicos", "Colirios", "Algodón" });
-            cmbproducto.Location = new Point(242, 74);
+            cmbproducto.Location = new Point(242, 75);
             cmbproducto.Name = "cmbproducto";
-            cmbproducto.Size = new Size(195, 36);
+            cmbproducto.Size = new Size(276, 36);
             cmbproducto.TabIndex = 15;
             // 
             // button1
@@ -227,7 +227,7 @@
             // txtcantidad
             // 
             txtcantidad.BorderStyle = BorderStyle.FixedSingle;
-            txtcantidad.Location = new Point(714, 75);
+            txtcantidad.Location = new Point(805, 75);
             txtcantidad.Multiline = true;
             txtcantidad.Name = "txtcantidad";
             txtcantidad.Size = new Size(173, 37);
@@ -236,7 +236,7 @@
             // txtprecio
             // 
             txtprecio.BorderStyle = BorderStyle.FixedSingle;
-            txtprecio.Location = new Point(474, 76);
+            txtprecio.Location = new Point(565, 76);
             txtprecio.Multiline = true;
             txtprecio.Name = "txtprecio";
             txtprecio.Size = new Size(173, 37);
@@ -254,7 +254,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(699, 104);
+            label7.Location = new Point(790, 104);
             label7.Name = "label7";
             label7.Size = new Size(0, 28);
             label7.TabIndex = 8;
@@ -262,7 +262,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(714, 44);
+            label5.Location = new Point(805, 44);
             label5.Name = "label5";
             label5.Size = new Size(100, 28);
             label5.TabIndex = 6;
@@ -271,7 +271,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(474, 44);
+            label4.Location = new Point(565, 44);
             label4.Name = "label4";
             label4.Size = new Size(75, 28);
             label4.TabIndex = 5;
@@ -396,21 +396,21 @@
             // burbujaToolStripMenuItem
             // 
             burbujaToolStripMenuItem.Name = "burbujaToolStripMenuItem";
-            burbujaToolStripMenuItem.Size = new Size(186, 28);
+            burbujaToolStripMenuItem.Size = new Size(224, 28);
             burbujaToolStripMenuItem.Text = "Burbuja";
             burbujaToolStripMenuItem.Click += burbujaToolStripMenuItem_Click;
             // 
             // quickSortToolStripMenuItem
             // 
             quickSortToolStripMenuItem.Name = "quickSortToolStripMenuItem";
-            quickSortToolStripMenuItem.Size = new Size(186, 28);
+            quickSortToolStripMenuItem.Size = new Size(224, 28);
             quickSortToolStripMenuItem.Text = "QuickSort";
             quickSortToolStripMenuItem.Click += quickSortToolStripMenuItem_Click_3;
             // 
             // mergeSortToolStripMenuItem
             // 
             mergeSortToolStripMenuItem.Name = "mergeSortToolStripMenuItem";
-            mergeSortToolStripMenuItem.Size = new Size(186, 28);
+            mergeSortToolStripMenuItem.Size = new Size(224, 28);
             mergeSortToolStripMenuItem.Text = "MergeSort";
             mergeSortToolStripMenuItem.Click += mergeSortToolStripMenuItem_Click_3;
             // 
@@ -438,13 +438,14 @@
             // simplesToolStripMenuItem
             // 
             simplesToolStripMenuItem.Name = "simplesToolStripMenuItem";
-            simplesToolStripMenuItem.Size = new Size(179, 28);
+            simplesToolStripMenuItem.Size = new Size(224, 28);
             simplesToolStripMenuItem.Text = "Simples";
+            simplesToolStripMenuItem.Click += simplesToolStripMenuItem_Click;
             // 
             // circularesToolStripMenuItem
             // 
             circularesToolStripMenuItem.Name = "circularesToolStripMenuItem";
-            circularesToolStripMenuItem.Size = new Size(179, 28);
+            circularesToolStripMenuItem.Size = new Size(224, 28);
             circularesToolStripMenuItem.Text = "Circulares";
             // 
             // listasEnlazadasToolStripMenuItem

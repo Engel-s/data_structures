@@ -12,16 +12,14 @@ namespace Farmacia_VitaCare
 {
     public partial class FormPilas : Form
     {
-        public class Producto
+        public struct Compras
         {
-            public string Codigo { get; set; }
-            public string Nombre { get; set; }
-            public decimal Precio { get; set; }
-            public int Cantidad { get; set; }
-            public decimal Subtotal { get; set; }
+            public string Codigo, producto;
+            public decimal Precio, Subtotal;
+            public int Cantidad;
         }
 
-        private Stack<Producto> pilaProducto = new Stack<Producto>();
+        private Stack<Compras> pilaCompra = new Stack<Compras>();
         private int sizePila = 0;
 
         public FormPilas()
@@ -33,6 +31,10 @@ namespace Farmacia_VitaCare
 
         private void FormPilas_Load(object sender, EventArgs e)
         {
+            dtgcompraspila.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(21, 71, 130);
+            dtgcompraspila.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dtgcompraspila.EnableHeadersVisualStyles = false;
+            dtgcompraspila.AllowUserToAddRows = false;
 
         }
 
@@ -45,7 +47,7 @@ namespace Farmacia_VitaCare
                 {
                     dtgcompraspila.Rows.Add();
                 }
-                pilaProducto.Clear();
+                pilaCompra.Clear();
                 txttotalpila.Text = " 0";
 
                 panelData.Enabled = true;
@@ -58,7 +60,14 @@ namespace Farmacia_VitaCare
 
         private void btnagregarpila_Click(object sender, EventArgs e)
         {
-            if (pilaProducto.Count < sizePila)
+            if (txtcodigopila.Text == "" || cmbproductopila.Text == "" || txtcantidadpila.Text == "" || txtpreciopila.Text == "")
+            {
+                MessageBox.Show("Debe llenar todos los campos", "Aviso", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+
+            if (pilaCompra.Count < sizePila)
             {
                 // Obtiene los datos de los campos
                 string codigo = txtcodigopila.Text;
@@ -68,24 +77,24 @@ namespace Farmacia_VitaCare
                 decimal subtotal = precio * cantidad;
 
                 // Crea el producto y lo agrega a la pila
-                Producto prod = new Producto
+                Compras prod = new Compras
                 {
                     Codigo = codigo,
-                    Nombre = producto,
+                    producto = producto,
                     Precio = precio,
                     Cantidad = cantidad,
                     Subtotal = subtotal
                 };
 
-                pilaProducto.Push(prod);
+                pilaCompra.Push(prod);
 
 
-                int rowIndex = pilaProducto.Count - 1;
+                int rowIndex = pilaCompra.Count - 1;
                 dtgcompraspila.Rows[rowIndex].SetValues(codigo, producto, precio, cantidad, subtotal);
 
 
                 decimal total = 0;
-                foreach (var item in pilaProducto)
+                foreach (var item in pilaCompra)
                 {
                     total += item.Subtotal;
                 }
@@ -93,16 +102,17 @@ namespace Farmacia_VitaCare
             }
             else
             {
-                MessageBox.Show("La pila está llena.");
+                MessageBox.Show("La pila está llena.", "Aviso", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
         }
 
         private void btneliminarpila_Click(object sender, EventArgs e)
         {
-            if (pilaProducto.Count > 0)
+            if (pilaCompra.Count > 0)
             {
-                int rowIndex = pilaProducto.Count - 1;
-                pilaProducto.Pop();
+                int rowIndex = pilaCompra.Count - 1;
+                pilaCompra.Pop();
 
 
                 for (int i = 0; i < dtgcompraspila.Columns.Count; i++)
@@ -112,7 +122,7 @@ namespace Farmacia_VitaCare
 
 
                 decimal total = 0;
-                foreach (var item in pilaProducto)
+                foreach (var item in pilaCompra)
                 {
                     total += item.Subtotal;
                 }
@@ -130,6 +140,16 @@ namespace Farmacia_VitaCare
             welcome.Show();
 
             this.Hide();
+        }
+
+        private void panelData_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
