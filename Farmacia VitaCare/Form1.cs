@@ -41,6 +41,7 @@ namespace Farmacia_VitaCare
             MessageBox.Show("Ingrese una compra y luego seleccione recursividad o metodo de ordenamiento");
             labelrecursividad.Visible = false;
         }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -170,9 +171,17 @@ namespace Farmacia_VitaCare
 
         private void btnmergesort_Click(object sender, EventArgs e)
         {
-            Metodos_Ordenamiento ordenamiento = new Metodos_Ordenamiento();
-            compras = ordenamiento.MergeSort(compras);
+            if (compras.Length == 0)
+            {
+                MessageBox.Show("No hay compras para ordenar.");
+                return;
+            }
+            int contador = compras.Length;
+            string archivo = "compras.txt";
+
+            Metodos_Ordenamiento.Mezcla_Directa_Externa(compras, contador, archivo);
             refrescarData();
+            MessageBox.Show($"Archivo final ordenado: {archivo}");
         }
 
         private void btnquiscksot_Click(object sender, EventArgs e)

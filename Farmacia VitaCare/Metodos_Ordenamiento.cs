@@ -27,51 +27,6 @@ namespace Farmacia_VitaCare
             }
         }
 
-        // Metodo mergesort
-        private FormCompraVitaCare.Compras[] Merge(FormCompraVitaCare.Compras[] left, FormCompraVitaCare.Compras[] right)
-        {
-            FormCompraVitaCare.Compras[] resultado = new FormCompraVitaCare.Compras[left.Length + right.Length];
-            int i = 0, j = 0, k = 0;
-            while (i < left.Length && j < right.Length)
-            {
-                if (left[i].subtotal <= right[j].subtotal)
-                {
-                    resultado[k++] = left[i++];
-                }
-                else
-                {
-                    resultado[k++] = right[j++];
-                }
-            }
-            while (i < left.Length)
-            {
-                resultado[k++] = left[i++];
-            }
-            while (j < right.Length)
-            {
-                resultado[k++] = right[j++];
-            }
-            return resultado;
-        }
-
-        public FormCompraVitaCare.Compras[] MergeSort(FormCompraVitaCare.Compras[] array)
-        {
-            if (array.Length <= 1)
-                return array;
-
-            int medio = array.Length / 2;
-
-            FormCompraVitaCare.Compras[] left = new FormCompraVitaCare.Compras[medio];
-            FormCompraVitaCare.Compras[] right = new FormCompraVitaCare.Compras[array.Length - medio];
-            Array.Copy(array, 0, left, 0, medio);
-            Array.Copy(array, medio, right, 0, array.Length - medio);
-
-            left = MergeSort(left);
-            right = MergeSort(right);
-
-            return Merge(left, right);
-        }
-
         //metodo de quicksort
         public void QuickSort(FormCompraVitaCare.Compras[] compras, int izquierda, int derecha)
         {
@@ -94,5 +49,116 @@ namespace Farmacia_VitaCare
             if (izquierda < j) QuickSort(compras, izquierda, j);
             if (i < derecha) QuickSort(compras, i, derecha);
         }
+
+
+        //METODOS PARA MEZCLA DIRECTA EXTERNA
+        private static void GuardarRegistro(FormCompraVitaCare.Compras c, string archivo)
+        {
+            using (var streamWriter = new StreamWriter(archivo, false, Encoding.UTF8))
+            {
+                streamWriter.WriteLine($"{c.codigo}|{c.producto}|{c.cantidad}|{c.precio}|{c.subtotal}");
+            }
+        }
+
+        private static FormCompraVitaCare.Compras LeerRegistro(string linea)
+        {
+            var _partes = linea.Split('|');
+            return new FormCompraVitaCare.Compras
+            {
+                codigo = _partes[0],
+                producto = _partes[1],
+                cantidad = int.Parse(_partes[2]),
+                precio = decimal.Parse(_partes[3]),
+                subtotal = decimal.Parse(_partes[4])
+            };
+        }
+
+        private static void MezclarArchivos(string i, string a, string destinoarchivo)
+        {
+            using (var streamReader1 = new StreamReader(i))
+            using (var streamReader2 = new StreamReader(a))
+            using (var streamW = new StreamWriter(destinoarchivo, false, Encoding.UTF8))
+            {
+                string l1 = streamReader1.ReadLine();
+                string l2 = streamReader2.ReadLine();
+
+                while (l1 != null && l2 != null)
+                {
+                    var lR1 = LeerRegistro(l1);
+                    var lR2 = LeerRegistro(l2);
+
+                    if (lR1.subtotal <= lR2.subtotal)
+                    {
+                        streamW.WriteLine(l1);
+                        l1 = streamReader1.ReadLine();
+                    }
+                    else
+                    {
+                        streamW.WriteLine(l2);
+                        l2 = streamReader2.ReadLine();
+                    }
+                }
+
+                while (l1 != null) { streamW.WriteLine(l1); l1 = streamReader1.ReadLine(); }
+                while (l2 != null) { streamW.WriteLine(l2); l2 = streamReader2.ReadLine(); }
+            }
+        }
+
+
+
+        public static void Mezcla_Directa_Externa(FormCompraVitaCare.Compras[] compras, int contador, string archivo_final)
+        {
+            //crear archivos temporales de un registro
+            string tempDir = Path.Combine(Path.GetTempPath(), "mezcla_temp");
+            Directory.CreateDirectory(tempDir);
+            string[] archivos_temporales = new string[contador];
+
+            for (int i = 0; i < contador; i++)
+            {
+                archivos_temporales[i] = Path.Combine(tempDir, $"temp{i}.txt");
+                GuardarRegistro(compras[i], archivos_temporales[i]);
+            }
+
+            // Mezclar archivos de 2 en 2 hasta obtener archivo final
+            while (archivos_temporales.Length > 1)
+            {
+                int n = archivos_temporales.Length;
+                string[] nuevosArchivos = new string[(n + 1) / 2];
+
+                for (int i = 0; i < n; i += 2)
+                {
+                    if (i + 1 < n)
+                    {
+                        string fusionado = Path.Combine(tempDir, $"fusion{i / 2}.txt");
+                        MezclarArchivos(archivos_temporales[i], archivos_temporales[i + 1], fusionado);
+                        nuevosArchivos[i / 2] = fusionado;
+                    }
+                    else
+                    {
+                        nuevosArchivos[i / 2] = archivos_temporales[i];
+                    }
+                }
+
+                archivos_temporales = nuevosArchivos;
+            }
+
+            // Aqui se lee el archivo final y rellenar arreglo
+            int index = 0;
+            using (var sr = new StreamReader(archivos_temporales[0]))
+            {
+                string linea;
+                while ((linea = sr.ReadLine()) != null)
+                {
+                    compras[index++] = LeerRegistro(linea);
+                }
+            }
+
+            //guardar archivo
+            File.Copy(archivos_temporales[0], archivo_final, true);
+
+            //limpiar temporales
+            Directory.Delete(tempDir, true);
+        }
+
     }
 }
