@@ -265,5 +265,13 @@ namespace Farmacia_VitaCare
             colas_Simples.Show();
             this.Hide();
         }
+
+        private void circularesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormColaCirulares colas_Circulares = new FormColaCirulares();
+            colas_Circulares.Show();
+
+            this.Hide();
+        }
     }
 }

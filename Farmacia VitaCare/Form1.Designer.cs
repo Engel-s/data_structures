@@ -396,21 +396,21 @@
             // burbujaToolStripMenuItem
             // 
             burbujaToolStripMenuItem.Name = "burbujaToolStripMenuItem";
-            burbujaToolStripMenuItem.Size = new Size(224, 28);
+            burbujaToolStripMenuItem.Size = new Size(186, 28);
             burbujaToolStripMenuItem.Text = "Burbuja";
             burbujaToolStripMenuItem.Click += burbujaToolStripMenuItem_Click;
             // 
             // quickSortToolStripMenuItem
             // 
             quickSortToolStripMenuItem.Name = "quickSortToolStripMenuItem";
-            quickSortToolStripMenuItem.Size = new Size(224, 28);
+            quickSortToolStripMenuItem.Size = new Size(186, 28);
             quickSortToolStripMenuItem.Text = "QuickSort";
             quickSortToolStripMenuItem.Click += quickSortToolStripMenuItem_Click_3;
             // 
             // mergeSortToolStripMenuItem
             // 
             mergeSortToolStripMenuItem.Name = "mergeSortToolStripMenuItem";
-            mergeSortToolStripMenuItem.Size = new Size(224, 28);
+            mergeSortToolStripMenuItem.Size = new Size(186, 28);
             mergeSortToolStripMenuItem.Text = "MergeSort";
             mergeSortToolStripMenuItem.Click += mergeSortToolStripMenuItem_Click_3;
             // 
@@ -447,6 +447,7 @@
             circularesToolStripMenuItem.Name = "circularesToolStripMenuItem";
             circularesToolStripMenuItem.Size = new Size(224, 28);
             circularesToolStripMenuItem.Text = "Circulares";
+            circularesToolStripMenuItem.Click += circularesToolStripMenuItem_Click;
             // 
             // listasEnlazadasToolStripMenuItem
             // 
