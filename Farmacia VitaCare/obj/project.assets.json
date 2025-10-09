@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Engels\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Farmacia VitaCare.csproj",
+      "projectUniqueName": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Farmacia VitaCare.csproj",
       "projectName": "Farmacia VitaCare",
-      "projectPath": "C:\\Users\\Engels\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Farmacia VitaCare.csproj",
+      "projectPath": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Farmacia VitaCare.csproj",
       "packagesPath": "C:\\Users\\Engels\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Engels\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\obj\\",
+      "outputPath": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

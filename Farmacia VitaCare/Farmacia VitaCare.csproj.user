@@ -10,6 +10,9 @@
     <Compile Update="FormColaCirulares.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormListas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormPilas.cs">
       <SubType>Form</SubType>
     </Compile>
