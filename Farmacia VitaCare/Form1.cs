@@ -273,5 +273,12 @@ namespace Farmacia_VitaCare
 
             this.Hide();
         }
+
+        private void listasEnlazadasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormListas formListas = new FormListas();
+            formListas.Show();
+            this.Hide();
+        }
     }
 }

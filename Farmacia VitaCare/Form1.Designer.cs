@@ -438,14 +438,14 @@
             // simplesToolStripMenuItem
             // 
             simplesToolStripMenuItem.Name = "simplesToolStripMenuItem";
-            simplesToolStripMenuItem.Size = new Size(224, 28);
+            simplesToolStripMenuItem.Size = new Size(179, 28);
             simplesToolStripMenuItem.Text = "Simples";
             simplesToolStripMenuItem.Click += simplesToolStripMenuItem_Click;
             // 
             // circularesToolStripMenuItem
             // 
             circularesToolStripMenuItem.Name = "circularesToolStripMenuItem";
-            circularesToolStripMenuItem.Size = new Size(224, 28);
+            circularesToolStripMenuItem.Size = new Size(179, 28);
             circularesToolStripMenuItem.Text = "Circulares";
             circularesToolStripMenuItem.Click += circularesToolStripMenuItem_Click;
             // 
@@ -454,6 +454,7 @@
             listasEnlazadasToolStripMenuItem.Name = "listasEnlazadasToolStripMenuItem";
             listasEnlazadasToolStripMenuItem.Size = new Size(231, 28);
             listasEnlazadasToolStripMenuItem.Text = "Listas Enlazadas";
+            listasEnlazadasToolStripMenuItem.Click += listasEnlazadasToolStripMenuItem_Click;
             // 
             // arbolesBinariosToolStripMenuItem
             // 

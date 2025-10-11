@@ -3,52 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\farmacia vitacare\\formcolacirulares.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\formcolacirulares.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|c:\\users\\engels\\onedrive\\desktop\\farmacia vitacare\\farmacia vitacare\\formlistas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\formlistas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|c:\\users\\engels\\onedrive\\desktop\\farmacia vitacare\\farmacia vitacare\\formlistas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\formlistas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|c:\\users\\engels\\onedrive\\desktop\\farmacia vitacare\\farmacia vitacare\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|c:\\users\\engels\\onedrive\\desktop\\farmacia vitacare\\farmacia vitacare\\lista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\lista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|c:\\users\\engels\\onedrive\\desktop\\farmacia vitacare\\farmacia vitacare\\welcome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\welcome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|c:\\users\\engels\\onedrive\\desktop\\farmacia vitacare\\farmacia vitacare\\nodo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\nodo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|c:\\users\\engels\\onedrive\\desktop\\farmacia vitacare\\farmacia vitacare\\formpilas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\formpilas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|c:\\users\\engels\\onedrive\\desktop\\farmacia vitacare\\farmacia vitacare\\formcolacirulares.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\formcolacirulares.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|c:\\users\\engels\\onedrive\\desktop\\farmacia vitacare\\farmacia vitacare\\colas_circulares.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\colas_circulares.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|c:\\users\\engels\\onedrive\\desktop\\farmacia vitacare\\farmacia vitacare\\cola_simple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\cola_simple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\farmacia vitacare\\formcolacirulares.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\formcolacirulares.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\farmacia vitacare\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\farmacia vitacare\\formpilas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\formpilas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|c:\\users\\engels\\onedrive\\desktop\\farmacia vitacare\\farmacia vitacare\\recursividad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FFC92B0-A2EB-4C83-82FF-231D270CC645}|Farmacia VitaCare\\Farmacia VitaCare.csproj|solutionrelative:farmacia vitacare\\recursividad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 218,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -73,20 +49,42 @@
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Welcome.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Welcome.cs",
-              "RelativeDocumentMoniker": "Farmacia VitaCare\\Welcome.cs",
-              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Welcome.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Farmacia VitaCare\\Welcome.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-09T20:43:45.042Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "FormListas.cs",
+              "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\FormListas.cs",
+              "RelativeDocumentMoniker": "Farmacia VitaCare\\FormListas.cs",
+              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\FormListas.cs",
+              "RelativeToolTip": "Farmacia VitaCare\\FormListas.cs",
+              "ViewState": "AgIAALgAAAAAAAAAAAAcwGQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T04:26:36.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Lista.cs",
+              "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Lista.cs",
+              "RelativeDocumentMoniker": "Farmacia VitaCare\\Lista.cs",
+              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Lista.cs",
+              "RelativeToolTip": "Farmacia VitaCare\\Lista.cs",
+              "ViewState": "AgIAACgBAAAAAAAAAAAAADEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T02:51:20.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "FormListas.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\FormListas.cs",
               "RelativeDocumentMoniker": "Farmacia VitaCare\\FormListas.cs",
@@ -98,33 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Lista.cs",
-              "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Lista.cs",
-              "RelativeDocumentMoniker": "Farmacia VitaCare\\Lista.cs",
-              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Lista.cs",
-              "RelativeToolTip": "Farmacia VitaCare\\Lista.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAkwGwAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T23:44:17.5Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FormColaCirulares.cs",
-              "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\FormColaCirulares.cs",
-              "RelativeDocumentMoniker": "Farmacia VitaCare\\FormColaCirulares.cs",
-              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\FormColaCirulares.cs",
-              "RelativeToolTip": "Farmacia VitaCare\\FormColaCirulares.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T03:47:11.82Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "FormColaCirulares.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\FormColaCirulares.cs",
               "RelativeDocumentMoniker": "Farmacia VitaCare\\FormColaCirulares.cs",
@@ -137,86 +109,48 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "FormPilas.cs",
-              "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\FormPilas.cs",
-              "RelativeDocumentMoniker": "Farmacia VitaCare\\FormPilas.cs",
-              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\FormPilas.cs",
-              "RelativeToolTip": "Farmacia VitaCare\\FormPilas.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T22:59:30.468Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Nodo.cs",
-              "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Nodo.cs",
-              "RelativeDocumentMoniker": "Farmacia VitaCare\\Nodo.cs",
-              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Nodo.cs",
-              "RelativeToolTip": "Farmacia VitaCare\\Nodo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T23:14:53.588Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Colas_circulares.cs",
-              "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Colas_circulares.cs",
-              "RelativeDocumentMoniker": "Farmacia VitaCare\\Colas_circulares.cs",
-              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Colas_circulares.cs",
-              "RelativeToolTip": "Farmacia VitaCare\\Colas_circulares.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T03:24:06.002Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "cola_simple.cs",
-              "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\cola_simple.cs",
-              "RelativeDocumentMoniker": "Farmacia VitaCare\\cola_simple.cs",
-              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\cola_simple.cs",
-              "RelativeToolTip": "Farmacia VitaCare\\cola_simple.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T23:03:37.344Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "FormPilas.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\FormPilas.cs",
-              "RelativeDocumentMoniker": "Farmacia VitaCare\\FormPilas.cs",
-              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\FormPilas.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Farmacia VitaCare\\FormPilas.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T18:57:24.207Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Form1.cs",
               "RelativeDocumentMoniker": "Farmacia VitaCare\\Form1.cs",
-              "ToolTip": "C:\\Users\\Engels\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Form1.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Farmacia VitaCare\\Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T19:00:02.679Z"
-            },
+              "WhenOpened": "2025-09-27T19:00:02.679Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "a0167633-72f7-412b-9411-6a310f787051",
+        "Display": 1,
+        "X": 148,
+        "Y": 86,
+        "Width": 1205,
+        "Height": 749,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Recursividad.cs",
-              "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Recursividad.cs",
-              "RelativeDocumentMoniker": "Farmacia VitaCare\\Recursividad.cs",
-              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Recursividad.cs",
-              "RelativeToolTip": "Farmacia VitaCare\\Recursividad.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Form1.cs",
+              "RelativeDocumentMoniker": "Farmacia VitaCare\\Form1.cs",
+              "ToolTip": "C:\\Users\\Engels\\OneDrive\\Desktop\\Farmacia VitaCare\\Farmacia VitaCare\\Form1.cs",
+              "RelativeToolTip": "Farmacia VitaCare\\Form1.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAjwBwBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T20:36:24.731Z"
+              "WhenOpened": "2025-10-11T02:16:13.694Z",
+              "EditorCaption": ""
             }
           ]
         }
