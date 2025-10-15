@@ -23,11 +23,12 @@ namespace Farmacia_VitaCare
 
         Compras[] compra;
 
-        Colas_circulares cola = new Colas_circulares();
+        Colas_circulares cola;
 
         public FormColaCirulares()
         {
             InitializeComponent();
+            panelData.Enabled = false;
         }
 
         private void txttotalcola_TextChanged(object sender, EventArgs e)
@@ -52,115 +53,114 @@ namespace Farmacia_VitaCare
 
         private void btnokcircular_Click(object sender, EventArgs e)
         {
-            int cantidad;
-
-            if (string.IsNullOrWhiteSpace(txtsizecircular.Text) ||
-                !int.TryParse(txtsizecircular.Text, out cantidad) ||
-                cantidad <= 0)
+            if (!int.TryParse(txtsizecircular.Text, out int cantidad) || cantidad <= 0)
             {
                 MessageBox.Show("Ingrese una cantidad válida");
+                return;
             }
-            else
-            {
-                dtgcomprascircular.Rows.Clear();
-                for (int a = 0; a < cantidad; a++)
-                {
-                    dtgcomprascircular.Rows.Add();
-                }
 
-                _cantidad = cantidad;
-                cola = new Colas_circulares(_cantidad);
-                compra = new Compras[_cantidad];
-                btnokcircular.Enabled = false;
-                txtsizecircular.Enabled = false;
-                panelData.Enabled = true;
-            }
+            // Configurar DataGridView
+            dtgcomprascircular.Rows.Clear();
+            for (int a = 0; a < cantidad; a++)
+                dtgcomprascircular.Rows.Add();
+
+            _cantidad = cantidad;
+            cola = new Colas_circulares(_cantidad);
+            compra = new Compras[_cantidad];
+
+            btnokcircular.Enabled = false;
+            txtsizecircular.Enabled = false;
+            panelData.Enabled = true;
         }
 
         private void btnagregarcircular_Click(object sender, EventArgs e)
         {
-            if (i < _cantidad)
+            if (string.IsNullOrWhiteSpace(txtcodigocircular.Text) ||
+                string.IsNullOrWhiteSpace(cmbproductocircular.Text) ||
+                string.IsNullOrWhiteSpace(txtcantidadcircular.Text) ||
+                string.IsNullOrWhiteSpace(txtpreciocircular.Text))
             {
-                if (txtcodigocircular.Text == "" || cmbproductocircular.Text == "" || txtcantidadcircular.Text == "" || txtpreciocircular.Text == "")
-                {
-                    MessageBox.Show("Debe llenar todos los campos", "Aviso", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                }
-                else
-                {
-                    compra[i].codigo = txtcodigocircular.Text;
-                    compra[i].producto = cmbproductocircular.Text;
-                    compra[i].cantidad = Convert.ToInt32(txtcantidadcircular.Text);
-                    compra[i].precio = Convert.ToDecimal(txtpreciocircular.Text);
-                    compra[i].subtotal = Convert.ToDecimal(txtcantidadcircular.Text) * Convert.ToDecimal(txtpreciocircular.Text);
-
-                    cola.insertar(i);
-
-                    dtgcomprascircular.Rows[i].Cells[0].Value = compra[i].codigo;
-                    dtgcomprascircular.Rows[i].Cells[1].Value = compra[i].producto;
-                    dtgcomprascircular.Rows[i].Cells[2].Value = compra[i].cantidad;
-                    dtgcomprascircular.Rows[i].Cells[3].Value = compra[i].precio;
-                    dtgcomprascircular.Rows[i].Cells[4].Value = compra[i].subtotal;
-
-                    i++;
-
-                    decimal total = 0;
-                    for (int j = 0; j < i; j++)
-                    {
-                        total += compra[j].subtotal;
-                    }
-                    txttotalcircular.Text = $"{total}";
-
-                    limpiarCampos();
-                }
+                MessageBox.Show("Debe llenar todos los campos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-            else
+
+            if (cola.ColaLlena())
             {
-                cola.insertar(i);
+                MessageBox.Show("La cola está llena.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            int idxInsertar = cola.Final == -1
+                ? 0
+                : (cola.Final + 1) % cola.Max;
+
+            compra[idxInsertar].codigo = txtcodigocircular.Text;
+            compra[idxInsertar].producto = cmbproductocircular.Text;
+            compra[idxInsertar].cantidad = Convert.ToInt32(txtcantidadcircular.Text);
+            compra[idxInsertar].precio = Convert.ToDecimal(txtpreciocircular.Text);
+            compra[idxInsertar].subtotal = compra[idxInsertar].cantidad * compra[idxInsertar].precio;
+
+       
+            cola.insertar(idxInsertar); 
+
+            MostrarCola();
+            limpiarCampos();
         }
 
         private void btneliminarcircular_Click(object sender, EventArgs e)
         {
-            if (i > 0)
+
+            if (cola.ColaVacia())
             {
-                cola.ELiminar();
-
-                for (int c = 0; c < dtgcomprascircular.Columns.Count; c++)
-                {
-                    dtgcomprascircular.Rows[0].Cells[c].Value = null;
-                }
-
-                for (int k = 0; k < i - 1; k++)
-                {
-                    compra[k] = compra[k + 1];
-
-                    dtgcomprascircular.Rows[k].Cells[0].Value = compra[k].codigo;
-                    dtgcomprascircular.Rows[k].Cells[1].Value = compra[k].producto;
-                    dtgcomprascircular.Rows[k].Cells[2].Value = compra[k].cantidad;
-                    dtgcomprascircular.Rows[k].Cells[3].Value = compra[k].precio;
-                    dtgcomprascircular.Rows[k].Cells[4].Value = compra[k].subtotal;
-                }
-
-                for (int c = 0; c < dtgcomprascircular.Columns.Count; c++)
-                {
-                    dtgcomprascircular.Rows[i - 1].Cells[c].Value = null;
-                }
-
-                decimal total = 0;
-                for (int j = 0; j < i; j++)
-                {
-                    total += compra[j].subtotal;
-                }
-                txttotalcircular.Text = $"{total}";
-
-                i--;
+                MessageBox.Show("La cola está vacía.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-            else
+
+            cola.ELiminar();
+            MostrarCola();
+        }
+
+        private void MostrarCola()
+        {
+            for (int fila = 0; fila < dtgcomprascircular.Rows.Count; fila++)
             {
-                cola.ELiminar();
+                for (int col = 0; col < dtgcomprascircular.Columns.Count; col++)
+                    dtgcomprascircular.Rows[fila].Cells[col].Value = null;
+
+
+                if (!cola.ColaVacia())
+                {
+                    int pos = cola.Frente;
+                    decimal total = 0;
+
+                    while (true)
+                    {
+                        int idxCompra = cola.ColaC[pos];
+
+                       
+                        dtgcomprascircular.Rows[pos].Cells[0].Value = compra[idxCompra].codigo;
+                        dtgcomprascircular.Rows[pos].Cells[1].Value = compra[idxCompra].producto;
+                        dtgcomprascircular.Rows[pos].Cells[2].Value = compra[idxCompra].cantidad;
+                        dtgcomprascircular.Rows[pos].Cells[3].Value = compra[idxCompra].precio;
+                        dtgcomprascircular.Rows[pos].Cells[4].Value = compra[idxCompra].subtotal;
+
+                        total += compra[idxCompra].subtotal;
+
+                        if (pos == cola.Final)
+                            break;
+
+                        pos = (pos + 1) % cola.Max;
+                    }
+
+                    txttotalcircular.Text = total.ToString("0.00");
+                }
+                else
+                {
+                    txttotalcircular.Text = "0.00";
+                }
             }
         }
+
 
         private void btnsalir_Click(object sender, EventArgs e)
         {

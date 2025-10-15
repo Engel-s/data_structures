@@ -25,6 +25,5 @@ namespace Farmacia_VitaCare
             cantidad = cant;
             subtotal = sub;
         }
-
     }
 }

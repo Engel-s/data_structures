@@ -231,14 +231,14 @@
             // iterativoToolStripMenuItem
             // 
             iterativoToolStripMenuItem.Name = "iterativoToolStripMenuItem";
-            iterativoToolStripMenuItem.Size = new Size(224, 26);
+            iterativoToolStripMenuItem.Size = new Size(155, 26);
             iterativoToolStripMenuItem.Text = "Iterativo";
             iterativoToolStripMenuItem.Click += iterativoToolStripMenuItem_Click;
             // 
             // recursivoToolStripMenuItem
             // 
             recursivoToolStripMenuItem.Name = "recursivoToolStripMenuItem";
-            recursivoToolStripMenuItem.Size = new Size(224, 26);
+            recursivoToolStripMenuItem.Size = new Size(155, 26);
             recursivoToolStripMenuItem.Text = "Recursivo";
             recursivoToolStripMenuItem.Click += recursivoToolStripMenuItem_Click;
             // 
@@ -284,6 +284,7 @@
             btnsalir.SizeMode = PictureBoxSizeMode.StretchImage;
             btnsalir.TabIndex = 51;
             btnsalir.TabStop = false;
+            btnsalir.Click += btnsalir_Click;
             // 
             // dtglistas
             // 

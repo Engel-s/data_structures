@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Farmacia VitaCare")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f436e176e0892627fc935c9a4217c1e5159fbca4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+584eaeb3f68d8a6e20fef8087b35e46c0a6098e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Farmacia VitaCare")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Farmacia VitaCare")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

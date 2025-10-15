@@ -34,26 +34,15 @@ namespace Farmacia_VitaCare
         {
             if (!ColaLlena())
             {
-                if (Frente == -1) // Si la cola está vacía
-                {
-                    Frente = 0;
-                    Final = 0;
-                }
-                else if (Final == Max - 1 && Frente != 0) 
-                {
-                    Final = 0;
-                }
-                else
-                {
-                    Final++;
-                }
+                Final = (Final + 1) % Max;
+                ColaC[Final] = i;
 
-                ColaC[Final] = i; 
+                if (Frente == -1) 
+                    Frente = 0;
             }
             else
             {
-                MessageBox.Show("La cola está llena.", "Aviso", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("La cola está llena.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -61,20 +50,14 @@ namespace Farmacia_VitaCare
         {
             if (!ColaVacia())
             {
-                int elemento = ColaC[Frente];
-
-                if (Frente == Final) 
+                if (Frente == Final)
                 {
                     Frente = -1;
                     Final = -1;
                 }
-                else if (Frente == Max - 1) 
-                {
-                    Frente = 0;
-                }
                 else
                 {
-                    Frente++;
+                    Frente = (Frente + 1) % Max;
                 }
             }
             else

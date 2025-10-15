@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Farmacia_VitaCare.PIla;
 
 namespace Farmacia_VitaCare
 {
@@ -19,8 +20,8 @@ namespace Farmacia_VitaCare
             public int Cantidad;
         }
 
-        private Stack<Compras> pilaCompra = new Stack<Compras>();
-        private int sizePila = 0;
+        private Pila<Compras> pilaCompra;
+        private int sizePila = 0; 
 
         public FormPilas()
         {
@@ -42,14 +43,16 @@ namespace Farmacia_VitaCare
         {
             if (int.TryParse(txtsizepila.Text, out sizePila) && sizePila > 0)
             {
+                // crea la pila con el tamaño especificado
+                pilaCompra = new Pila<Compras>(sizePila);
+
                 dtgcompraspila.Rows.Clear();
                 for (int i = 0; i < sizePila; i++)
                 {
                     dtgcompraspila.Rows.Add();
                 }
-                pilaCompra.Clear();
-                txttotalpila.Text = " 0";
 
+                txttotalpila.Text = "0";
                 panelData.Enabled = true;
             }
             else
@@ -67,71 +70,97 @@ namespace Farmacia_VitaCare
                 return;
             }
 
-            if (pilaCompra.Count < sizePila)
+            try
             {
-                // Obtiene los datos de los campos
-                string codigo = txtcodigopila.Text;
-                string producto = cmbproductopila.Text;
-                decimal precio = decimal.TryParse(txtpreciopila.Text, out var p) ? p : 0;
-                int cantidad = int.TryParse(txtcantidadpila.Text, out var c) ? c : 0;
-                decimal subtotal = precio * cantidad;
-
-                // Crea el producto y lo agrega a la pila
-                Compras prod = new Compras
+                if (!pilaCompra.PilaLlena())
                 {
-                    Codigo = codigo,
-                    producto = producto,
-                    Precio = precio,
-                    Cantidad = cantidad,
-                    Subtotal = subtotal
-                };
+   
+                    string codigo = txtcodigopila.Text;
+                    string producto = cmbproductopila.Text;
+                    decimal precio = decimal.TryParse(txtpreciopila.Text, out var p) ? p : 0;
+                    int cantidad = int.TryParse(txtcantidadpila.Text, out var c) ? c : 0;
+                    decimal subtotal = precio * cantidad;
 
-                pilaCompra.Push(prod);
+                    // crea la compra
+                    Compras prod = new Compras
+                    {
+                        Codigo = codigo,
+                        producto = producto,
+                        Precio = precio,
+                        Cantidad = cantidad,
+                        Subtotal = subtotal
+                    };
+               
+                    pilaCompra.Pone(prod);
+           
+                    int rowIndex = pilaCompra.Tope - 1;
+                    dtgcompraspila.Rows[rowIndex].SetValues(codigo, producto, precio, cantidad, subtotal);
+                   
+                    ActualizarTotal();
 
-
-                int rowIndex = pilaCompra.Count - 1;
-                dtgcompraspila.Rows[rowIndex].SetValues(codigo, producto, precio, cantidad, subtotal);
-
-
-                decimal total = 0;
-                foreach (var item in pilaCompra)
-                {
-                    total += item.Subtotal;
+                    LimpiarCampos();
                 }
-                txttotalpila.Text = $"{total}";
+                else
+                {
+                    MessageBox.Show("La pila está llena.", "Aviso", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("La pila está llena.", "Aviso", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btneliminarpila_Click(object sender, EventArgs e)
         {
-            if (pilaCompra.Count > 0)
+            try
             {
-                int rowIndex = pilaCompra.Count - 1;
-                pilaCompra.Pop();
 
-
-                for (int i = 0; i < dtgcompraspila.Columns.Count; i++)
+                if (!pilaCompra.PilaVacia())
                 {
-                    dtgcompraspila.Rows[rowIndex].Cells[i].Value = null;
+  
+                    Compras elementoEliminado = pilaCompra.Quita();
+
+ 
+                    int rowIndex = pilaCompra.Tope; 
+                    for (int i = 0; i < dtgcompraspila.Columns.Count; i++)
+                    {
+                        dtgcompraspila.Rows[rowIndex].Cells[i].Value = null;
+                    }
+
+                    ActualizarTotal();
                 }
-
-
-                decimal total = 0;
-                foreach (var item in pilaCompra)
+                else
                 {
-                    total += item.Subtotal;
+                    MessageBox.Show("La pila está vacía.");
                 }
-                txttotalpila.Text = $"{total}";
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("La pila está vacía.");
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void ActualizarTotal()
+        {
+            decimal total = 0;
+
+            for (int i = 0; i < pilaCompra.Tope; i++)
+            {
+                if (dtgcompraspila.Rows[i].Cells[4].Value != null)
+                {
+                    total += Convert.ToDecimal(dtgcompraspila.Rows[i].Cells[4].Value);
+                }
+            }
+
+            txttotalpila.Text = $"{total}";
+        }
+        private void LimpiarCampos()
+        {
+            txtcodigopila.Text = "";
+            cmbproductopila.SelectedIndex = -1;
+            txtcantidadpila.Text = "";
+            txtpreciopila.Text = "";
         }
 
         private void btnsalir_Click(object sender, EventArgs e)

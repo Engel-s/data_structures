@@ -584,5 +584,11 @@ namespace Farmacia_VitaCare
             x = txtbuscar.Text;
             _lista.BusquedaRecursiva(_lista.primerNodo, x);
         }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            Welcome welcome = new Welcome();
+            welcome.Show();
+        }
     }
 }
