@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Farmacia_VitaCare
 {
-    public partial class FormListas : Form  
+    public partial class FormListas : Form
     {
         string x;
         public struct Compras
@@ -21,7 +21,7 @@ namespace Farmacia_VitaCare
         }
         Compras[] compra = new Compras[0];
         Lista _lista = new Lista();
-        Nodo _nodo = new Nodo();
+        Nodo nodo = new Nodo();
 
         public void OcultarCampos()
         {
@@ -32,6 +32,9 @@ namespace Farmacia_VitaCare
             dtglistas.Visible = false;
             pnlBtnInsertar.Visible = false;
             panelBuscar.Visible = false;
+            pnlEliminar.Visible = false;
+            pnlBusqueda.Visible = false;
+            pnlRecorrido.Visible = false;
         }
         private void MostrarBtnInsertar(string boton)
         {
@@ -46,22 +49,26 @@ namespace Farmacia_VitaCare
             {
                 case "inicio":
                     btnInsertarInicio.Visible = true;
+                    pnlEliminar.Visible = false;
                     break;
                 case "final":
                     btnInsertarFinal.Visible = true;
+                    pnlEliminar.Visible = false;
                     break;
                 case "antes":
                     btnInsertarAntesX.Visible = true;
+                    pnlEliminar.Visible = false;
                     break;
                 case "despues":
                     btnInsertarDespuesX.Visible = true;
+                    pnlEliminar.Visible = false;
                     break;
             }
 
             pnlBtnInsertar.Visible = true;
         }
 
-        private void MostrarBtnSalir(string boton)
+        private void MostrarBtnEliminar(string boton)
         {
             btnEliminarInicio.Visible = false;
             btnEliminarFinal.Visible = false;
@@ -73,21 +80,67 @@ namespace Farmacia_VitaCare
             {
                 case "inicio":
                     btnEliminarInicio.Visible = true;
+                    pnlBtnInsertar.Visible = false;
                     break;
                 case "final":
                     btnEliminarFinal.Visible = true;
+                    pnlBtnInsertar.Visible = false;
                     break;
                 case "x":
                     btnEliminarX.Visible = true;
+                    pnlBtnInsertar.Visible = false;
                     break;
                 case "antes":
                     btnEliminarAntesX.Visible = true;
+                    pnlBtnInsertar.Visible = false;
                     break;
                 case "despues":
                     btnEliminarDespuesX.Visible = true;
+                    pnlBtnInsertar.Visible = false;
                     break;
             }
             pnlEliminar.Visible = true;
+        }
+
+        private void MostrarBtnBusqueda(string boton)
+        {
+            btnbusquedaOrdenada.Visible = false;
+            btnbusquedaDesordenada.Visible = false;
+            btnbusquedaRecursiva.Visible = false;
+            switch (boton)
+            {
+                case "ordenada":
+                    btnbusquedaOrdenada.Visible = true;
+                    pnlRecorrido.Visible = false;
+                    break;
+                case "desordenada":
+                    btnbusquedaDesordenada.Visible = true;
+                    pnlRecorrido.Visible = false;
+                    break;
+                case "recursiva":
+                    btnbusquedaRecursiva.Visible = true;
+                    pnlRecorrido.Visible = false;
+                    break;
+            }
+            pnlBusqueda.Visible = true;
+        }
+
+        public void MostrarBtnRecorrido(string boton)
+        {
+            btnRecorrerI.Visible = false;
+            btnRecorrerR.Visible = false;
+            switch (boton)
+            {
+                case "iterativo":
+                    btnRecorrerI.Visible = true;
+                    pnlBusqueda.Visible = false;
+                    break;
+                case "recursivo":
+                    btnRecorrerR.Visible = true;
+                    pnlBusqueda.Visible = false;
+                    break;
+            }
+            pnlRecorrido.Visible = true;
         }
 
         public void MostrarCampos()
@@ -98,7 +151,7 @@ namespace Farmacia_VitaCare
             txttotallista.Visible = true;
             dtglistas.Visible = true;
             pnlBtnInsertar.Visible = true;
-            pnlEliminar.Visible = false;
+            pnlEliminar.Visible = true;
         }
         public FormListas()
         {
@@ -141,7 +194,7 @@ namespace Farmacia_VitaCare
                     string.IsNullOrWhiteSpace(txtpreciolista.Text) ||
                     string.IsNullOrWhiteSpace(cmbproductolista.Text))
                 {
-                    MessageBox.Show("Debe llenar todos los campos", "Aviso", MessageBoxButtons.OK,
+                    MessageBox.Show("Debe llenar todos los campos.", "Aviso", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     return;
                 }
@@ -183,7 +236,7 @@ namespace Farmacia_VitaCare
                     string.IsNullOrWhiteSpace(txtpreciolista.Text) ||
                     string.IsNullOrWhiteSpace(cmbproductolista.Text))
                 {
-                    MessageBox.Show("Debe llenar todos los campos", "Aviso", MessageBoxButtons.OK,
+                    MessageBox.Show("Debe llenar todos los campos.", "Aviso", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     return;
                 }
@@ -239,7 +292,7 @@ namespace Farmacia_VitaCare
                     string.IsNullOrWhiteSpace(txtpreciolista.Text) ||
                     string.IsNullOrWhiteSpace(cmbproductolista.Text))
                 {
-                    MessageBox.Show("Debe llenar todos los campos", "Aviso", MessageBoxButtons.OK,
+                    MessageBox.Show("Debe llenar todos los campos.", "Aviso", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     return;
                 }
@@ -254,7 +307,7 @@ namespace Farmacia_VitaCare
 
                 if (string.IsNullOrWhiteSpace(txtbuscar.Text))
                 {
-                    MessageBox.Show("Debe ingresar el código posterior de donde quiere ingresar el producto", "Aviso",
+                    MessageBox.Show("Debe ingresar el código posterior de donde quiere ingresar el producto.", "Aviso",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtbuscar.Focus();
                     return;
@@ -297,7 +350,7 @@ namespace Farmacia_VitaCare
                     string.IsNullOrWhiteSpace(txtpreciolista.Text) ||
                     string.IsNullOrWhiteSpace(cmbproductolista.Text))
                 {
-                    MessageBox.Show("Debe llenar todos los campos", "Aviso", MessageBoxButtons.OK,
+                    MessageBox.Show("Debe llenar todos los campos.", "Aviso", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     return;
                 }
@@ -312,7 +365,7 @@ namespace Farmacia_VitaCare
 
                 if (string.IsNullOrWhiteSpace(txtbuscar.Text))
                 {
-                    MessageBox.Show("Debe ingresar el código anterior de donde quiere ingresar el producto", "Aviso",
+                    MessageBox.Show("Debe ingresar el código anterior de donde quiere ingresar el producto.", "Aviso",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtbuscar.Focus();
                     return;
@@ -341,9 +394,8 @@ namespace Farmacia_VitaCare
 
         private void eliminarinicioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            pnlBtnInsertar.Visible = false;
-            MostrarBtnSalir("inicio");
             MostrarCampos();
+            MostrarBtnEliminar("inicio");
             panelBuscar.Visible = false;
         }
 
@@ -359,17 +411,17 @@ namespace Farmacia_VitaCare
 
         private void eliminarantesDeXToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            pnlBtnInsertar.Visible = false;
-            MostrarBtnSalir("x");
             MostrarCampos();
+            pnlBtnInsertar.Visible = false;
+            MostrarBtnEliminar("x");
             panelBuscar.Visible = true;
         }
 
         private void eliminarfinalToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            pnlBtnInsertar.Visible = false;
-            MostrarBtnSalir("final");
             MostrarCampos();
+            pnlBtnInsertar.Visible = false;
+            MostrarBtnEliminar("final");
             panelBuscar.Visible = false;
         }
 
@@ -384,7 +436,7 @@ namespace Farmacia_VitaCare
         {
             if (string.IsNullOrWhiteSpace(txtbuscar.Text))
             {
-                MessageBox.Show("Debe ingresar el código que desea eliminar", "Aviso",
+                MessageBox.Show("Debe ingresar el código que desea eliminar.", "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtbuscar.Focus();
                 return;
@@ -401,7 +453,7 @@ namespace Farmacia_VitaCare
         {
             if (string.IsNullOrWhiteSpace(txtbuscar.Text))
             {
-                MessageBox.Show("Debe ingresar el código posterior del cual desea eliminar", "Aviso",
+                MessageBox.Show("Debe ingresar el código posterior del cual desea eliminar.", "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtbuscar.Focus();
                 return;
@@ -416,17 +468,17 @@ namespace Farmacia_VitaCare
 
         private void eliminardespuesDeXToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            pnlBtnInsertar.Visible = true;
-            MostrarBtnSalir("antes");
             MostrarCampos();
+            pnlBtnInsertar.Visible = true;
+            MostrarBtnEliminar("antes");
             panelBuscar.Visible = true;
         }
 
         private void despuesDeXToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            pnlBtnInsertar.Visible = true;
-            MostrarBtnSalir("despues");
             MostrarCampos();
+            pnlBtnInsertar.Visible = true;
+            MostrarBtnEliminar("despues");
             panelBuscar.Visible = true;
         }
 
@@ -434,7 +486,7 @@ namespace Farmacia_VitaCare
         {
             if (string.IsNullOrWhiteSpace(txtbuscar.Text))
             {
-                MessageBox.Show("Debe ingresar el código anterior del cual desea eliminar", "Aviso",
+                MessageBox.Show("Debe ingresar el código anterior del cual desea eliminar.", "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtbuscar.Focus();
                 return;
@@ -445,6 +497,92 @@ namespace Farmacia_VitaCare
             _lista.EliminarDespuesX(x);
             _lista.Mostrar(dtglistas);
             CalcularTotal();
+        }
+
+        private void dtglistas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void ordenadaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MostrarBtnBusqueda("ordenada");
+            panelBuscar.Visible = true;
+        }
+
+        private void btnbusquedaOrdenada_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtbuscar.Text))
+            {
+                MessageBox.Show("Debe ingresar el código por el cual desea hacer la busqueda ordenada.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtbuscar.Focus();
+                return;
+            }
+
+            x = txtbuscar.Text;
+            _lista.BusquedaOrdenada(x);
+        }
+
+        private void btnbusquedaDesordenada_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtbuscar.Text))
+            {
+                MessageBox.Show("Debe ingresar el código por el cual desea hacer la busqueda desordenada.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtbuscar.Focus();
+                return;
+            }
+
+            x = txtbuscar.Text;
+            _lista.BusquedaDesordenada(x);
+        }
+
+        private void btnRecorrerI_Click(object sender, EventArgs e)
+        {
+            _lista.RecorridoIterativo(dtglistas);
+        }
+
+        private void btnRecorrerR_Click(object sender, EventArgs e)
+        {
+            _lista.RecorridoRecursivo(_lista.primerNodo);
+        }
+
+        private void desordenadaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MostrarBtnBusqueda("desordenada");
+            panelBuscar.Visible = true;
+        }
+
+        private void recursivaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MostrarBtnBusqueda("recursiva");
+            panelBuscar.Visible = true;
+        }
+
+        private void iterativoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MostrarBtnRecorrido("iterativo");
+            panelBuscar.Visible = false;
+        }
+
+        private void recursivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MostrarBtnRecorrido("recursivo");
+            panelBuscar.Visible = false;
+        }
+
+        private void btnbusquedaRecursiva_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtbuscar.Text))
+            {
+                MessageBox.Show("Debe ingresar el código por el cual desea hacer la busqueda recursiva.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtbuscar.Focus();
+                return;
+            }
+
+            x = txtbuscar.Text;
+            _lista.BusquedaRecursiva(_lista.primerNodo, x);
         }
     }
 }

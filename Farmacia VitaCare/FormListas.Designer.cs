@@ -86,6 +86,13 @@
             btnEliminarInicio = new Button();
             pnlEliminar = new Panel();
             btnEliminarX = new Button();
+            pnlBusqueda = new Panel();
+            btnbusquedaRecursiva = new Button();
+            btnbusquedaDesordenada = new Button();
+            btnbusquedaOrdenada = new Button();
+            pnlRecorrido = new Panel();
+            btnRecorrerR = new Button();
+            btnRecorrerI = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnsalir).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtglistas).BeginInit();
@@ -95,6 +102,8 @@
             panelBuscar.SuspendLayout();
             pnlBtnInsertar.SuspendLayout();
             pnlEliminar.SuspendLayout();
+            pnlBusqueda.SuspendLayout();
+            pnlRecorrido.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -152,35 +161,35 @@
             // eliminarinicioToolStripMenuItem1
             // 
             eliminarinicioToolStripMenuItem1.Name = "eliminarinicioToolStripMenuItem1";
-            eliminarinicioToolStripMenuItem1.Size = new Size(224, 26);
+            eliminarinicioToolStripMenuItem1.Size = new Size(182, 26);
             eliminarinicioToolStripMenuItem1.Text = "Inicio";
             eliminarinicioToolStripMenuItem1.Click += eliminarinicioToolStripMenuItem1_Click;
             // 
             // eliminarfinalToolStripMenuItem1
             // 
             eliminarfinalToolStripMenuItem1.Name = "eliminarfinalToolStripMenuItem1";
-            eliminarfinalToolStripMenuItem1.Size = new Size(224, 26);
+            eliminarfinalToolStripMenuItem1.Size = new Size(182, 26);
             eliminarfinalToolStripMenuItem1.Text = "Final";
             eliminarfinalToolStripMenuItem1.Click += eliminarfinalToolStripMenuItem1_Click;
             // 
             // eliminarXToolStripMenuItem1
             // 
             eliminarXToolStripMenuItem1.Name = "eliminarXToolStripMenuItem1";
-            eliminarXToolStripMenuItem1.Size = new Size(224, 26);
+            eliminarXToolStripMenuItem1.Size = new Size(182, 26);
             eliminarXToolStripMenuItem1.Text = "Eliminar X";
             eliminarXToolStripMenuItem1.Click += eliminarantesDeXToolStripMenuItem1_Click;
             // 
             // eliminardespuesDeXToolStripMenuItem1
             // 
             eliminardespuesDeXToolStripMenuItem1.Name = "eliminardespuesDeXToolStripMenuItem1";
-            eliminardespuesDeXToolStripMenuItem1.Size = new Size(224, 26);
+            eliminardespuesDeXToolStripMenuItem1.Size = new Size(182, 26);
             eliminardespuesDeXToolStripMenuItem1.Text = "Antes de X";
             eliminardespuesDeXToolStripMenuItem1.Click += eliminardespuesDeXToolStripMenuItem1_Click;
             // 
             // despuesDeXToolStripMenuItem1
             // 
             despuesDeXToolStripMenuItem1.Name = "despuesDeXToolStripMenuItem1";
-            despuesDeXToolStripMenuItem1.Size = new Size(224, 26);
+            despuesDeXToolStripMenuItem1.Size = new Size(182, 26);
             despuesDeXToolStripMenuItem1.Text = "Despues de X";
             despuesDeXToolStripMenuItem1.Click += despuesDeXToolStripMenuItem1_Click;
             // 
@@ -196,18 +205,21 @@
             ordenadaToolStripMenuItem.Name = "ordenadaToolStripMenuItem";
             ordenadaToolStripMenuItem.Size = new Size(181, 26);
             ordenadaToolStripMenuItem.Text = "Ordenada";
+            ordenadaToolStripMenuItem.Click += ordenadaToolStripMenuItem_Click;
             // 
             // desordenadaToolStripMenuItem
             // 
             desordenadaToolStripMenuItem.Name = "desordenadaToolStripMenuItem";
             desordenadaToolStripMenuItem.Size = new Size(181, 26);
             desordenadaToolStripMenuItem.Text = "Desordenada";
+            desordenadaToolStripMenuItem.Click += desordenadaToolStripMenuItem_Click;
             // 
             // recursivaToolStripMenuItem
             // 
             recursivaToolStripMenuItem.Name = "recursivaToolStripMenuItem";
             recursivaToolStripMenuItem.Size = new Size(181, 26);
             recursivaToolStripMenuItem.Text = "Recursiva";
+            recursivaToolStripMenuItem.Click += recursivaToolStripMenuItem_Click;
             // 
             // recorridosToolStripMenuItem
             // 
@@ -219,14 +231,16 @@
             // iterativoToolStripMenuItem
             // 
             iterativoToolStripMenuItem.Name = "iterativoToolStripMenuItem";
-            iterativoToolStripMenuItem.Size = new Size(155, 26);
+            iterativoToolStripMenuItem.Size = new Size(224, 26);
             iterativoToolStripMenuItem.Text = "Iterativo";
+            iterativoToolStripMenuItem.Click += iterativoToolStripMenuItem_Click;
             // 
             // recursivoToolStripMenuItem
             // 
             recursivoToolStripMenuItem.Name = "recursivoToolStripMenuItem";
-            recursivoToolStripMenuItem.Size = new Size(155, 26);
+            recursivoToolStripMenuItem.Size = new Size(224, 26);
             recursivoToolStripMenuItem.Text = "Recursivo";
+            recursivoToolStripMenuItem.Click += recursivoToolStripMenuItem_Click;
             // 
             // label9
             // 
@@ -234,7 +248,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Candara", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.Black;
-            label9.Location = new Point(12, 676);
+            label9.Location = new Point(12, 672);
             label9.Name = "label9";
             label9.Size = new Size(223, 21);
             label9.TabIndex = 54;
@@ -244,7 +258,7 @@
             // txttotallista
             // 
             txttotallista.BorderStyle = BorderStyle.FixedSingle;
-            txttotallista.Location = new Point(1038, 607);
+            txttotallista.Location = new Point(1038, 603);
             txttotallista.Multiline = true;
             txttotallista.Name = "txttotallista";
             txttotallista.ReadOnly = true;
@@ -255,7 +269,7 @@
             // 
             lblTotal.AutoSize = true;
             lblTotal.Font = new Font("Candara", 13.8F, FontStyle.Bold);
-            lblTotal.Location = new Point(1038, 576);
+            lblTotal.Location = new Point(1038, 572);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(61, 28);
             lblTotal.TabIndex = 52;
@@ -264,7 +278,7 @@
             // btnsalir
             // 
             btnsalir.Image = (Image)resources.GetObject("btnsalir.Image");
-            btnsalir.Location = new Point(1120, 650);
+            btnsalir.Location = new Point(1120, 646);
             btnsalir.Name = "btnsalir";
             btnsalir.Size = new Size(64, 47);
             btnsalir.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -292,6 +306,7 @@
             dtglistas.RowHeadersWidth = 51;
             dtglistas.Size = new Size(1017, 204);
             dtglistas.TabIndex = 50;
+            dtglistas.CellContentClick += dtglistas_CellContentClick;
             // 
             // Column1
             // 
@@ -432,7 +447,7 @@
             btnInsertarDespuesX.FlatStyle = FlatStyle.Flat;
             btnInsertarDespuesX.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInsertarDespuesX.ForeColor = Color.White;
-            btnInsertarDespuesX.Location = new Point(12, 30);
+            btnInsertarDespuesX.Location = new Point(28, 22);
             btnInsertarDespuesX.Name = "btnInsertarDespuesX";
             btnInsertarDespuesX.Size = new Size(115, 42);
             btnInsertarDespuesX.TabIndex = 20;
@@ -446,7 +461,7 @@
             btnInsertarFinal.FlatStyle = FlatStyle.Flat;
             btnInsertarFinal.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInsertarFinal.ForeColor = Color.White;
-            btnInsertarFinal.Location = new Point(12, 30);
+            btnInsertarFinal.Location = new Point(28, 22);
             btnInsertarFinal.Name = "btnInsertarFinal";
             btnInsertarFinal.Size = new Size(115, 42);
             btnInsertarFinal.TabIndex = 19;
@@ -460,7 +475,7 @@
             btnInsertarAntesX.FlatStyle = FlatStyle.Flat;
             btnInsertarAntesX.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInsertarAntesX.ForeColor = Color.White;
-            btnInsertarAntesX.Location = new Point(12, 30);
+            btnInsertarAntesX.Location = new Point(28, 22);
             btnInsertarAntesX.Name = "btnInsertarAntesX";
             btnInsertarAntesX.Size = new Size(115, 42);
             btnInsertarAntesX.TabIndex = 18;
@@ -474,7 +489,7 @@
             btnInsertarInicio.FlatStyle = FlatStyle.Flat;
             btnInsertarInicio.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInsertarInicio.ForeColor = Color.White;
-            btnInsertarInicio.Location = new Point(12, 30);
+            btnInsertarInicio.Location = new Point(28, 22);
             btnInsertarInicio.Name = "btnInsertarInicio";
             btnInsertarInicio.Size = new Size(115, 42);
             btnInsertarInicio.TabIndex = 14;
@@ -553,10 +568,10 @@
             // 
             // pnlBtnInsertar
             // 
-            pnlBtnInsertar.Controls.Add(btnInsertarInicio);
-            pnlBtnInsertar.Controls.Add(btnInsertarFinal);
             pnlBtnInsertar.Controls.Add(btnInsertarAntesX);
+            pnlBtnInsertar.Controls.Add(btnInsertarFinal);
             pnlBtnInsertar.Controls.Add(btnInsertarDespuesX);
+            pnlBtnInsertar.Controls.Add(btnInsertarInicio);
             pnlBtnInsertar.Location = new Point(0, 350);
             pnlBtnInsertar.Name = "pnlBtnInsertar";
             pnlBtnInsertar.Size = new Size(153, 84);
@@ -568,7 +583,7 @@
             btnEliminarDespuesX.FlatStyle = FlatStyle.Flat;
             btnEliminarDespuesX.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminarDespuesX.ForeColor = Color.White;
-            btnEliminarDespuesX.Location = new Point(674, 39);
+            btnEliminarDespuesX.Location = new Point(18, 20);
             btnEliminarDespuesX.Name = "btnEliminarDespuesX";
             btnEliminarDespuesX.Size = new Size(115, 42);
             btnEliminarDespuesX.TabIndex = 57;
@@ -582,7 +597,7 @@
             btnEliminarAntesX.FlatStyle = FlatStyle.Flat;
             btnEliminarAntesX.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminarAntesX.ForeColor = Color.White;
-            btnEliminarAntesX.Location = new Point(507, 30);
+            btnEliminarAntesX.Location = new Point(18, 20);
             btnEliminarAntesX.Name = "btnEliminarAntesX";
             btnEliminarAntesX.Size = new Size(115, 42);
             btnEliminarAntesX.TabIndex = 58;
@@ -596,7 +611,7 @@
             btnEliminarFinal.FlatStyle = FlatStyle.Flat;
             btnEliminarFinal.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminarFinal.ForeColor = Color.White;
-            btnEliminarFinal.Location = new Point(186, 30);
+            btnEliminarFinal.Location = new Point(18, 20);
             btnEliminarFinal.Name = "btnEliminarFinal";
             btnEliminarFinal.Size = new Size(115, 42);
             btnEliminarFinal.TabIndex = 60;
@@ -610,7 +625,7 @@
             btnEliminarInicio.FlatStyle = FlatStyle.Flat;
             btnEliminarInicio.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminarInicio.ForeColor = Color.White;
-            btnEliminarInicio.Location = new Point(39, 30);
+            btnEliminarInicio.Location = new Point(18, 20);
             btnEliminarInicio.Name = "btnEliminarInicio";
             btnEliminarInicio.Size = new Size(115, 42);
             btnEliminarInicio.TabIndex = 59;
@@ -620,14 +635,14 @@
             // 
             // pnlEliminar
             // 
-            pnlEliminar.Controls.Add(btnEliminarX);
             pnlEliminar.Controls.Add(btnEliminarInicio);
             pnlEliminar.Controls.Add(btnEliminarDespuesX);
+            pnlEliminar.Controls.Add(btnEliminarX);
             pnlEliminar.Controls.Add(btnEliminarFinal);
             pnlEliminar.Controls.Add(btnEliminarAntesX);
             pnlEliminar.Location = new Point(159, 350);
             pnlEliminar.Name = "pnlEliminar";
-            pnlEliminar.Size = new Size(838, 84);
+            pnlEliminar.Size = new Size(148, 84);
             pnlEliminar.TabIndex = 61;
             // 
             // btnEliminarX
@@ -636,7 +651,7 @@
             btnEliminarX.FlatStyle = FlatStyle.Flat;
             btnEliminarX.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminarX.ForeColor = Color.White;
-            btnEliminarX.Location = new Point(362, 21);
+            btnEliminarX.Location = new Point(18, 20);
             btnEliminarX.Name = "btnEliminarX";
             btnEliminarX.Size = new Size(115, 42);
             btnEliminarX.TabIndex = 61;
@@ -644,12 +659,102 @@
             btnEliminarX.UseVisualStyleBackColor = false;
             btnEliminarX.Click += btnEliminarX_Click;
             // 
+            // pnlBusqueda
+            // 
+            pnlBusqueda.Controls.Add(btnbusquedaRecursiva);
+            pnlBusqueda.Controls.Add(btnbusquedaDesordenada);
+            pnlBusqueda.Controls.Add(btnbusquedaOrdenada);
+            pnlBusqueda.Location = new Point(313, 353);
+            pnlBusqueda.Name = "pnlBusqueda";
+            pnlBusqueda.Size = new Size(149, 81);
+            pnlBusqueda.TabIndex = 62;
+            // 
+            // btnbusquedaRecursiva
+            // 
+            btnbusquedaRecursiva.BackColor = Color.DimGray;
+            btnbusquedaRecursiva.FlatStyle = FlatStyle.Flat;
+            btnbusquedaRecursiva.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnbusquedaRecursiva.ForeColor = Color.White;
+            btnbusquedaRecursiva.Location = new Point(17, 17);
+            btnbusquedaRecursiva.Name = "btnbusquedaRecursiva";
+            btnbusquedaRecursiva.Size = new Size(115, 42);
+            btnbusquedaRecursiva.TabIndex = 17;
+            btnbusquedaRecursiva.Text = "Buscar";
+            btnbusquedaRecursiva.UseVisualStyleBackColor = false;
+            // 
+            // btnbusquedaDesordenada
+            // 
+            btnbusquedaDesordenada.BackColor = Color.DimGray;
+            btnbusquedaDesordenada.FlatStyle = FlatStyle.Flat;
+            btnbusquedaDesordenada.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnbusquedaDesordenada.ForeColor = Color.White;
+            btnbusquedaDesordenada.Location = new Point(17, 17);
+            btnbusquedaDesordenada.Name = "btnbusquedaDesordenada";
+            btnbusquedaDesordenada.Size = new Size(115, 42);
+            btnbusquedaDesordenada.TabIndex = 16;
+            btnbusquedaDesordenada.Text = "Buscar";
+            btnbusquedaDesordenada.UseVisualStyleBackColor = false;
+            btnbusquedaDesordenada.Click += btnbusquedaDesordenada_Click;
+            // 
+            // btnbusquedaOrdenada
+            // 
+            btnbusquedaOrdenada.BackColor = Color.DimGray;
+            btnbusquedaOrdenada.FlatStyle = FlatStyle.Flat;
+            btnbusquedaOrdenada.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnbusquedaOrdenada.ForeColor = Color.White;
+            btnbusquedaOrdenada.Location = new Point(17, 17);
+            btnbusquedaOrdenada.Name = "btnbusquedaOrdenada";
+            btnbusquedaOrdenada.Size = new Size(115, 42);
+            btnbusquedaOrdenada.TabIndex = 15;
+            btnbusquedaOrdenada.Text = "Buscar";
+            btnbusquedaOrdenada.UseVisualStyleBackColor = false;
+            btnbusquedaOrdenada.Click += btnbusquedaOrdenada_Click;
+            // 
+            // pnlRecorrido
+            // 
+            pnlRecorrido.Controls.Add(btnRecorrerR);
+            pnlRecorrido.Controls.Add(btnRecorrerI);
+            pnlRecorrido.Location = new Point(468, 353);
+            pnlRecorrido.Name = "pnlRecorrido";
+            pnlRecorrido.Size = new Size(152, 81);
+            pnlRecorrido.TabIndex = 63;
+            // 
+            // btnRecorrerR
+            // 
+            btnRecorrerR.BackColor = Color.DimGray;
+            btnRecorrerR.FlatStyle = FlatStyle.Flat;
+            btnRecorrerR.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRecorrerR.ForeColor = Color.White;
+            btnRecorrerR.Location = new Point(20, 19);
+            btnRecorrerR.Name = "btnRecorrerR";
+            btnRecorrerR.Size = new Size(115, 42);
+            btnRecorrerR.TabIndex = 17;
+            btnRecorrerR.Text = "Recorrer";
+            btnRecorrerR.UseVisualStyleBackColor = false;
+            btnRecorrerR.Click += btnRecorrerR_Click;
+            // 
+            // btnRecorrerI
+            // 
+            btnRecorrerI.BackColor = Color.DimGray;
+            btnRecorrerI.FlatStyle = FlatStyle.Flat;
+            btnRecorrerI.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRecorrerI.ForeColor = Color.White;
+            btnRecorrerI.Location = new Point(20, 19);
+            btnRecorrerI.Name = "btnRecorrerI";
+            btnRecorrerI.Size = new Size(115, 42);
+            btnRecorrerI.TabIndex = 16;
+            btnRecorrerI.Text = "Recorrer";
+            btnRecorrerI.UseVisualStyleBackColor = false;
+            btnRecorrerI.Click += btnRecorrerI_Click;
+            // 
             // FormListas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1196, 701);
+            Controls.Add(pnlRecorrido);
+            Controls.Add(pnlBusqueda);
             Controls.Add(pnlEliminar);
             Controls.Add(pnlBtnInsertar);
             Controls.Add(panelBuscar);
@@ -662,8 +767,10 @@
             Controls.Add(tablepanel);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            MaximumSize = new Size(1214, 748);
             MinimumSize = new Size(1214, 748);
             Name = "FormListas";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormListas";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -678,6 +785,8 @@
             panelBuscar.PerformLayout();
             pnlBtnInsertar.ResumeLayout(false);
             pnlEliminar.ResumeLayout(false);
+            pnlBusqueda.ResumeLayout(false);
+            pnlRecorrido.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -741,5 +850,12 @@
         private Panel pnlEliminar;
         private Button btnEliminarX;
         private ToolStripMenuItem despuesDeXToolStripMenuItem1;
+        private Panel pnlBusqueda;
+        private Button btnbusquedaRecursiva;
+        private Button btnbusquedaDesordenada;
+        private Button btnbusquedaOrdenada;
+        private Panel pnlRecorrido;
+        private Button btnRecorrerI;
+        private Button btnRecorrerR;
     }
 }

@@ -371,6 +371,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1196, 701);
             Controls.Add(label9);
             Controls.Add(txttotalcircular);
@@ -385,6 +386,7 @@
             MaximumSize = new Size(1214, 748);
             MinimumSize = new Size(1214, 748);
             Name = "FormColaCirulares";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormColaCirulares";
             Load += FormColaCirulares_Load;
             ((System.ComponentModel.ISupportInitialize)btnsalir).EndInit();

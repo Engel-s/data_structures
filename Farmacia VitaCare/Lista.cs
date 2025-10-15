@@ -8,13 +8,13 @@ namespace Farmacia_VitaCare
 {
     public class Lista
     {
-        public Nodo primero, ultimo, anterior, T;
-        int bandera;
+        public Nodo primerNodo, nodoFinal, anterior, T;
+        int flag;
 
         public Lista()
         {
-            primero = null;
-            ultimo = null;
+            primerNodo = null;
+            nodoFinal = null;
         }
 
         #region Inserciones
@@ -28,8 +28,8 @@ namespace Farmacia_VitaCare
             q.precio = precio;
             q.subtotal = subtotal;
 
-            q.next = primero;
-            primero = q;
+            q.next = primerNodo;
+            primerNodo = q;
 
             MessageBox.Show($"Producto agregado correctamente, los datos del producto con el código {cod} al inicio", "Listo",
                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -38,7 +38,7 @@ namespace Farmacia_VitaCare
         public void InsertarFinal(string cod, string prod, int cant, decimal precio, decimal subtotal, DataGridView dgv)
         {
             Nodo q = new Nodo();
-            T = primero;
+            T = primerNodo;
 
             q.codigo = cod;
             q.producto = prod;
@@ -46,11 +46,11 @@ namespace Farmacia_VitaCare
             q.precio = precio;
             q.subtotal = subtotal;
 
-            if (primero == null)
+            if (primerNodo == null)
             {
-                q.next = primero;
-                primero = q;
-                ultimo = q;
+                q.next = primerNodo;
+                primerNodo = q;
+                nodoFinal = q;
             }
             else
             {
@@ -66,11 +66,11 @@ namespace Farmacia_VitaCare
 
         public void InsertarAntesX(string cod, string prod, int cant, decimal precio, decimal subtotal, string x)
         {
-            Nodo q = primero;
-            bandera = 1;
+            Nodo q = primerNodo;
+            flag = 1;
             Nodo T = new Nodo();
 
-            while (q.codigo != x && bandera == 1)
+            while (q.codigo != x && flag == 1)
             {
                 if (q.next != null)
                 {
@@ -79,22 +79,22 @@ namespace Farmacia_VitaCare
                 }
                 else
                 {
-                    bandera = 0;
+                    flag = 0;
                 }
             }
-            if (bandera == 1)
+            if (flag == 1)
             {
-                Nodo k = new Nodo(cod, prod, cant, precio, subtotal);
+                Nodo nuevoNodo = new Nodo(cod, prod, cant, precio, subtotal);
 
-                if (primero == q)
+                if (primerNodo == q)
                 {
-                    k.next = primero;
-                    primero = k;
+                    nuevoNodo.next = primerNodo;
+                    primerNodo = nuevoNodo;
                 }
                 else
                 {
-                    T.next = k;
-                    k.next = q;
+                    T.next = nuevoNodo;
+                    nuevoNodo.next = q;
                 }
                 MessageBox.Show($"Nodo insertado correctamente antes de {x}");
             }
@@ -106,10 +106,10 @@ namespace Farmacia_VitaCare
 
         public void InsertarDespuesX(string cod, string prod, int cant, decimal precio, decimal subtotal, string x)
         {
-            Nodo q = primero;
-            bandera = 1;
+            Nodo q = primerNodo;
+            flag = 1;
 
-            while (q.codigo != x && bandera == 1)
+            while (q.codigo != x && flag == 1)
             {
                 if (q.next != null)
                 {
@@ -117,10 +117,10 @@ namespace Farmacia_VitaCare
                 }
                 else
                 {
-                    bandera = 0;
+                    flag = 0;
                 }
             }
-            if (bandera == 1)
+            if (flag == 1)
             {
                 Nodo T = new Nodo(cod, prod, cant, precio, subtotal);
 
@@ -138,11 +138,11 @@ namespace Farmacia_VitaCare
         #region Eliminaciones
         public void EliminarInicio()
         {
-            if (primero != null)
+            if (primerNodo != null)
             {
-                Nodo q = primero;
-                MessageBox.Show($"Ha salido el nodo con código {primero.codigo}");
-                primero = q.next;
+                Nodo q = primerNodo;
+                MessageBox.Show($"Ha salido el nodo con código {primerNodo.codigo}");
+                primerNodo = q.next;
                 q = null;
             }
             else
@@ -153,17 +153,17 @@ namespace Farmacia_VitaCare
         }
         public void EliminarFinal()
         {
-            Nodo q = primero;
+            Nodo q = primerNodo;
 
-            if (primero == null)
+            if (primerNodo == null)
             {
                 MessageBox.Show("La lista está vacía", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (primero.next == null)
+                if (primerNodo.next == null)
                 {
-                    primero = null;
+                    primerNodo = null;
                 }
                 else
                 {
@@ -179,10 +179,10 @@ namespace Farmacia_VitaCare
         }
         public void EliminarX(string x)
         {
-            Nodo q = primero;
-            bandera = 1;
+            Nodo q = primerNodo;
+            flag = 1;
 
-            while (q.codigo != x && bandera == 1)
+            while (q.codigo != x && flag == 1)
             {
                 if (q.next != null)
                 {
@@ -191,14 +191,14 @@ namespace Farmacia_VitaCare
                 }
                 else
                 {
-                    bandera = 0;
+                    flag = 0;
                 }
             }
-            if (bandera == 1)
+            if (flag == 1)
             {
-                if (primero == q)
+                if (primerNodo == q)
                 {
-                    primero = q.next;
+                    primerNodo = q.next;
                 }
                 else
                 {
@@ -214,17 +214,17 @@ namespace Farmacia_VitaCare
         }
         public void EliminarAntesX(string x)
         {
-            if (primero.codigo == x)
+            if (primerNodo.codigo == x)
             {
                 MessageBox.Show($"No existe un nodo que preceda a {x}");
             }
             else
             {
-                Nodo q = primero;
-                bandera = 1;
-                T = primero;
+                Nodo q = primerNodo;
+                flag = 1;
+                T = primerNodo;
 
-                while (q.codigo != x && bandera == 1)
+                while (q.codigo != x && flag == 1)
                 {
                     if (q.next != null)
                     {
@@ -234,14 +234,14 @@ namespace Farmacia_VitaCare
                     }
                     else
                     {
-                        bandera = 0;
+                        flag = 0;
                     }
                 }
-                if (bandera == 1)
+                if (flag == 1)
                 {
-                    if (primero.next == q)
+                    if (primerNodo.next == q)
                     {
-                        primero = q;
+                        primerNodo = q;
                     }
                     else
                     {
@@ -258,16 +258,16 @@ namespace Farmacia_VitaCare
         }
         public void EliminarDespuesX(string x)
         {
-            if (primero.codigo == x && primero.next == null)
+            if (primerNodo.codigo == x && primerNodo.next == null)
             {
                 MessageBox.Show("Solo hay un nodo, no hay ninguno posterior a él");
             }
             else
             {
-                Nodo q = primero;
-                bandera = 1;
+                Nodo q = primerNodo;
+                flag = 1;
 
-                while (q.codigo != x && bandera == 1)
+                while (q.codigo != x && flag == 1)
                 {
                     if (q.next != null)
                     {
@@ -277,15 +277,15 @@ namespace Farmacia_VitaCare
                     }
                     else
                     {
-                        bandera = 0;
+                        flag = 0;
                     }
                 }
-                if (bandera == 1)
+                if (flag == 1)
                 {
-                    if (primero.codigo == x)
+                    if (primerNodo.codigo == x)
                     {
                         T = q.next;
-                        primero.next = T.next;
+                        primerNodo.next = T.next;
                     }
                     else
                     {
@@ -298,8 +298,10 @@ namespace Farmacia_VitaCare
                             anterior.next = T.next;
                         }
                         T = null;
-                        MessageBox.Show($"Se ha eliminado el nodo que se encuentra posterior a {x}");
+                        
                     }
+                    MessageBox.Show($"Se ha eliminado el nodo que se encuentra posterior a {x}");
+
                 }
                 else
                 {
@@ -312,7 +314,7 @@ namespace Farmacia_VitaCare
         #region Buscar
         public void BusquedaDesordenada(string x)
         {
-            Nodo q = primero;
+            Nodo q = primerNodo;
 
             while (q != null && q.codigo != x)
             {
@@ -324,14 +326,14 @@ namespace Farmacia_VitaCare
             }
             else
             {
-                MessageBox.Show($"El producto se encuentra en la lista, su información es la siguiente " +
+                MessageBox.Show($"El producto se encuentra en la lista, su información es la siguiente: " +
                     $"\nCódigo: {q.codigo} \nNombre: {q.producto}\nPrecio: {q.precio}\nCantidad: {q.cantidad}\nSubtotal: {q.subtotal}", "",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         public void BusquedaOrdenada(string x)
         {
-            Nodo q = primero;
+            Nodo q = primerNodo;
 
             while ((q != null) && (q.codigo != x))
             {
@@ -343,7 +345,7 @@ namespace Farmacia_VitaCare
             }
             else
             {
-                MessageBox.Show($"El producto se encuentra en la lista, su información es la siguiente " +
+                MessageBox.Show($"El producto se encuentra en la lista, su información es la siguiente: " +
                     $"\nCódigo: {q.codigo} \nNombre: {q.producto}\nPrecio: {q.precio}\nCantidad: {q.cantidad}\nTotal: {q.subtotal}", "", 
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -355,7 +357,7 @@ namespace Farmacia_VitaCare
             {
                 if (q.codigo == x)
                 {
-                    MessageBox.Show($"El producto se encuentra en la lista, su información es la siguiente " +
+                    MessageBox.Show($"El producto se encuentra en la lista, su información es la siguiente: " +
                         $"\nCódigo: {q.codigo} \nNombre: {q.producto}\nPrecio: {q.precio} \nCantidad: {q.cantidad} \nSubtotal: {q.subtotal}", "", 
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -375,9 +377,9 @@ namespace Farmacia_VitaCare
         public void RecorridoIterativo(DataGridView dgv)
         {
             Nodo q = new Nodo();
-            q = primero;
+            q = primerNodo;
 
-            if (primero != null)
+            if (primerNodo != null)
             {
                 while (q != null)
                 {
@@ -412,10 +414,10 @@ namespace Farmacia_VitaCare
         public void Mostrar(DataGridView dgv)
         {
             Nodo q = new Nodo();
-            q = primero;
+            q = primerNodo;
             dgv.Rows.Clear();
 
-            if (primero != null)
+            if (primerNodo != null)
             {
                 while (q != null)
                 {
