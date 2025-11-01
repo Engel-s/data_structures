@@ -17,7 +17,7 @@ namespace Farmacia_VitaCare
             nodoFinal = null;
         }
 
-        #region Inserciones
+
         public void InsertarInicio(string cod, string prod, int cant, decimal precio, decimal subtotal, DataGridView dgv )
         {
             Nodo q = new Nodo();
@@ -133,9 +133,8 @@ namespace Farmacia_VitaCare
                 MessageBox.Show("El nodo dado como referencia no se encuentra en la lista", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        #endregion
 
-        #region Eliminaciones
+
         public void EliminarInicio()
         {
             if (primerNodo != null)
@@ -309,9 +308,9 @@ namespace Farmacia_VitaCare
                 }
             }
         }
-        #endregion
 
-        #region Buscar
+
+
         public void BusquedaDesordenada(string x)
         {
             Nodo q = primerNodo;
@@ -371,9 +370,9 @@ namespace Farmacia_VitaCare
                 MessageBox.Show("El elemento no se encuentra en la lista", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        #endregion
+ 
 
-        #region Recorridos
+
         public void RecorridoIterativo(DataGridView dgv)
         {
             Nodo q = new Nodo();
@@ -408,9 +407,9 @@ namespace Farmacia_VitaCare
                 MessageBox.Show("Esta es toda la lista");
             }
         }
-        #endregion
+  
 
-        #region Mostrar
+    
         public void Mostrar(DataGridView dgv)
         {
             Nodo q = new Nodo();
@@ -430,6 +429,6 @@ namespace Farmacia_VitaCare
                 MessageBox.Show("La lista se encuentra vacía");
             }
         }
-        #endregion
+
     }
 }

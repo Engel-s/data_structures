@@ -181,7 +181,8 @@ namespace Farmacia_VitaCare
 
             Metodos_Ordenamiento.Mezcla_Directa_Externa(compras, contador, archivo);
             refrescarData();
-            MessageBox.Show($"Archivo final ordenado: {archivo}");
+            MessageBox.Show($"Archivo final ordenado: {archivo}, guardado en" +
+                $"Farmacia VitaCare/bin/Debug/net8.0-windows/compras");
         }
 
         private void btnquiscksot_Click(object sender, EventArgs e)

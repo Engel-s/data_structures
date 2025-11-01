@@ -49,113 +49,118 @@ namespace Farmacia_VitaCare
         private void btnokcola_Click(object sender, EventArgs e)
         {
             int cantidad;
-
-            if (string.IsNullOrWhiteSpace(txtsizecola.Text) ||
-                !int.TryParse(txtsizecola.Text, out cantidad) ||
-                cantidad <= 0)
+            if (!int.TryParse(txtsizecola.Text, out cantidad) || cantidad <= 0)
             {
                 MessageBox.Show("Ingrese una cantidad válida");
+                return;
             }
-            else
-            {
-                dtgcomprascola.Rows.Clear();
-                for(int a = 0; a < cantidad; a++)
-                {
-                    dtgcomprascola.Rows.Add();
-                }
 
-                _cantidad = cantidad;
-                cola = new cola_simple(_cantidad);
-                compra = new Compras[_cantidad];
-                btnokcola.Enabled = false;
-                txtsizecola.Enabled = false;
-                panelData.Enabled = true;
-            }
+            dtgcomprascola.Rows.Clear();
+            for (int a = 0; a < cantidad; a++) dtgcomprascola.Rows.Add();
+
+            _cantidad = cantidad;
+            i = 0;                                 
+            cola = new cola_simple(_cantidad);
+            compra = new Compras[_cantidad];
+
+            btnokcola.Enabled = false;
+            txtsizecola.Enabled = false;
+            panelData.Enabled = true;
         }
 
         private void btnagregarcola_Click(object sender, EventArgs e)
         {
-            if (i < _cantidad)
+            if (i >= _cantidad)
             {
-                if (txtcodigocola.Text == "" || cmbproductocola.Text == "" || txtcantidadcola.Text == "" || txtpreciocola.Text == "")
-                {
-                    MessageBox.Show("Debe llenar todos los campos", "Aviso", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                }
-                else
-                {
-                    compra[i].codigo = txtcodigocola.Text;
-                    compra[i].producto = cmbproductocola.Text;
-                    compra[i].cantidad = Convert.ToInt32(txtcantidadcola.Text);
-                    compra[i].precio = Convert.ToDecimal(txtpreciocola.Text);
-                    compra[i].subtotal = Convert.ToDecimal(txtcantidadcola.Text) * Convert.ToDecimal(txtpreciocola.Text);
-
-                    cola.insertar(i);
-
-                    dtgcomprascola.Rows[i].Cells[0].Value = compra[i].codigo;
-                    dtgcomprascola.Rows[i].Cells[1].Value = compra[i].producto;
-                    dtgcomprascola.Rows[i].Cells[2].Value = compra[i].cantidad;
-                    dtgcomprascola.Rows[i].Cells[3].Value = compra[i].precio;
-                    dtgcomprascola.Rows[i].Cells[4].Value = compra[i].subtotal;
-
-                    i++;
-
-                    decimal total = 0;
-                    for (int j = 0; j < i; j++)
-                    {
-                        total += compra[j].subtotal;
-                    }
-                    txttotalcola.Text = $"{total}";
-
-                    limpiarCampos();
-                }
+                MessageBox.Show("La cola está llena.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+
+
+            if (string.IsNullOrWhiteSpace(txtcodigocola.Text) ||
+                string.IsNullOrWhiteSpace(cmbproductocola.Text) ||
+                string.IsNullOrWhiteSpace(txtcantidadcola.Text) ||
+                string.IsNullOrWhiteSpace(txtpreciocola.Text))
             {
-                cola.insertar(i);
+                MessageBox.Show("Debe llenar todos los campos", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
+
+            if (!int.TryParse(txtcantidadcola.Text, out var cant) ||
+                !decimal.TryParse(txtpreciocola.Text, out var precio))
+            {
+                MessageBox.Show("Cantidad o precio inválidos.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (cola.ColaLlena())   
+            {
+                MessageBox.Show("La cola está llena.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; 
+            }
+
+
+            compra[i].codigo = txtcodigocola.Text;
+            compra[i].producto = cmbproductocola.Text;
+            compra[i].cantidad = cant;
+            compra[i].precio = precio;
+            compra[i].subtotal = cant * precio;
+
+            cola.insertar(i); 
+
+
+            dtgcomprascola.Rows[i].Cells[0].Value = compra[i].codigo;
+            dtgcomprascola.Rows[i].Cells[1].Value = compra[i].producto;
+            dtgcomprascola.Rows[i].Cells[2].Value = compra[i].cantidad;
+            dtgcomprascola.Rows[i].Cells[3].Value = compra[i].precio;
+            dtgcomprascola.Rows[i].Cells[4].Value = compra[i].subtotal;
+
+            i++;
+
+            decimal total = 0;
+            for (int j = 0; j < i; j++) total += compra[j].subtotal;
+            txttotalcola.Text = $"{total}";
+
+            limpiarCampos();
         }
 
         private void btneliminarcola_Click(object sender, EventArgs e)
         {
-            if (i > 0)
+            if (i <= 0)
             {
-                cola.ELiminar();
-                
-                for(int c = 0; c < dtgcomprascola.Columns.Count; c++)
-                {
-                    dtgcomprascola.Rows[0].Cells[c].Value = null;
-                }
-
-                for (int k = 0; k < i - 1; k++)
-                {
-                    compra[k] = compra[k + 1];
-                   
-                    dtgcomprascola.Rows[k].Cells[0].Value = compra[k].codigo;
-                    dtgcomprascola.Rows[k].Cells[1].Value = compra[k].producto;
-                    dtgcomprascola.Rows[k].Cells[2].Value = compra[k].cantidad;
-                    dtgcomprascola.Rows[k].Cells[3].Value = compra[k].precio;
-                    dtgcomprascola.Rows[k].Cells[4].Value = compra[k].subtotal;
-                }
-
-                for (int c = 0; c < dtgcomprascola.Columns.Count; c++)
-                {
-                    dtgcomprascola.Rows[i - 1].Cells[c].Value = null;
-                }
-
-                decimal total = 0;
-                for (int j = 0; j < i; j++)
-                {
-                    total += compra[j].subtotal;
-                }
-                txttotalcola.Text = $"{total}";
-
-                i--;
+                cola.ELiminar(); 
+                return;
             }
-            else
+
+            cola.ELiminar();
+
+            for (int c = 0; c < dtgcomprascola.Columns.Count; c++)
+                dtgcomprascola.Rows[0].Cells[c].Value = null;
+
+            for (int k = 0; k < i - 1; k++)
             {
-                cola.ELiminar();
+                compra[k] = compra[k + 1];
+                dtgcomprascola.Rows[k].Cells[0].Value = compra[k].codigo;
+                dtgcomprascola.Rows[k].Cells[1].Value = compra[k].producto;
+                dtgcomprascola.Rows[k].Cells[2].Value = compra[k].cantidad;
+                dtgcomprascola.Rows[k].Cells[3].Value = compra[k].precio;
+                dtgcomprascola.Rows[k].Cells[4].Value = compra[k].subtotal;
             }
+
+
+            for (int c = 0; c < dtgcomprascola.Columns.Count; c++)
+                dtgcomprascola.Rows[i - 1].Cells[c].Value = null;
+
+     
+            i--;
+
+            decimal total = 0;
+            for (int j = 0; j < i; j++) total += compra[j].subtotal;
+            txttotalcola.Text = $"{total}";
         }
 
         private void btnsalir_Click(object sender, EventArgs e)

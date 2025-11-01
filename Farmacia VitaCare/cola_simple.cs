@@ -26,57 +26,42 @@ namespace Farmacia_VitaCare
                 return true;
             else
                 return false;
-        } 
+        }
 
         public bool ColaLlena()
         {
-            if((Frente == 1 && Final == Max) || (Final +1 == Frente))
-                return true;
-            else
-                return false;
+            return Final == Max;
         }
 
-        public void insertar (int i)
+        public void insertar(int i)
         {
-            if(ColaLlena() == false)
+            if (ColaLlena())
             {
-                if (Final == Max)
-                {
-                    Final = 1;
-                }
-                else
-                {
-                    Final++;
-                }
-
-                ColaC[Final - 1] = i;
-                if (Frente == 0)
-                    Frente = 1;
+                MessageBox.Show("La cola está llena.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
-            {
-                MessageBox.Show("La cola está llena.", "Aviso", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-            }
+            Final = Final + 1;
+            ColaC[Final - 1] = i;
+            if (Frente == 0) Frente = 1;
         }
 
         public void ELiminar()
         {
-            if(ColaVacia() == false)
+            if (Frente == 0)
             {
-                if (Frente == Final)
-                {
-                    Frente = 0;
-                    Final = 0;
-                }
-                else if (Frente == Max)
-                    Frente = 1;
-                else
-                    Frente++;
+                MessageBox.Show("La cola está vacía.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
+            if (Frente == Final)
+            {
+                Frente = 0; Final = 0;
             }
             else
             {
-                MessageBox.Show("La cola está vacía.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Frente = Frente + 1;
+
             }
         }
     }
