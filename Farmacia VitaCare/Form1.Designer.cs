@@ -71,7 +71,6 @@
             arbolesBinariosToolStripMenuItem = new ToolStripMenuItem();
             binariosToolStripMenuItem = new ToolStripMenuItem();
             binariosBalanceadosToolStripMenuItem = new ToolStripMenuItem();
-            metodosDeOrdenamientoToolStripMenuItem1 = new ToolStripMenuItem();
             pictureBox2 = new PictureBox();
             txttotal = new TextBox();
             label8 = new Label();
@@ -371,7 +370,7 @@
             // 
             // cOMPRASToolStripMenuItem
             // 
-            cOMPRASToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { recursividadToolStripMenuItem, metodosDeOrdenamientoToolStripMenuItem, estructurasDeDatosDinamicasToolStripMenuItem, arbolesBinariosToolStripMenuItem, metodosDeOrdenamientoToolStripMenuItem1 });
+            cOMPRASToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { recursividadToolStripMenuItem, metodosDeOrdenamientoToolStripMenuItem, estructurasDeDatosDinamicasToolStripMenuItem, arbolesBinariosToolStripMenuItem });
             cOMPRASToolStripMenuItem.Font = new Font("Candara", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cOMPRASToolStripMenuItem.ForeColor = Color.FromArgb(21, 71, 130);
             cOMPRASToolStripMenuItem.Name = "cOMPRASToolStripMenuItem";
@@ -468,18 +467,13 @@
             binariosToolStripMenuItem.Name = "binariosToolStripMenuItem";
             binariosToolStripMenuItem.Size = new Size(274, 28);
             binariosToolStripMenuItem.Text = "Binarios";
+            binariosToolStripMenuItem.Click += binariosToolStripMenuItem_Click;
             // 
             // binariosBalanceadosToolStripMenuItem
             // 
             binariosBalanceadosToolStripMenuItem.Name = "binariosBalanceadosToolStripMenuItem";
             binariosBalanceadosToolStripMenuItem.Size = new Size(274, 28);
             binariosBalanceadosToolStripMenuItem.Text = "Binarios balanceados";
-            // 
-            // metodosDeOrdenamientoToolStripMenuItem1
-            // 
-            metodosDeOrdenamientoToolStripMenuItem1.Name = "metodosDeOrdenamientoToolStripMenuItem1";
-            metodosDeOrdenamientoToolStripMenuItem1.Size = new Size(358, 28);
-            metodosDeOrdenamientoToolStripMenuItem1.Text = "Metodos de Ordenamiento";
             // 
             // pictureBox2
             // 
@@ -595,7 +589,6 @@
         private Button btnquiscksot;
         private Button btnmergesort;
         private Label labelrecursividad;
-        private ToolStripMenuItem metodosDeOrdenamientoToolStripMenuItem1;
         private Label label8;
     }
 }

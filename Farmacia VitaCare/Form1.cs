@@ -281,5 +281,12 @@ namespace Farmacia_VitaCare
             formListas.Show();
             this.Hide();
         }
+
+        private void binariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormArbolBinario formarbol = new FormArbolBinario();
+            formarbol.Show();
+            this.Hide();
+        }
     }
 }

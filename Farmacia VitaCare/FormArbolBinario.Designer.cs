@@ -29,59 +29,56 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormArbolBinario));
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             pictureBox1 = new PictureBox();
             pnlArbol = new Panel();
-            groupBox5 = new GroupBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            gbRecorridos = new GroupBox();
+            btnPreOrden = new Button();
+            btnPosOrden = new Button();
+            btnInOrden = new Button();
             btnsalir = new PictureBox();
-            dtgcompras = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            txttotal = new TextBox();
+            dgvCompra = new DataGridView();
+            CODIGO = new DataGridViewTextBoxColumn();
+            PRODUCTO = new DataGridViewTextBoxColumn();
+            PRECIO = new DataGridViewTextBoxColumn();
+            CANTIDAD = new DataGridViewTextBoxColumn();
+            SUBTOTAL = new DataGridViewTextBoxColumn();
+            txtTotal = new TextBox();
             label2 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             label1 = new Label();
             groupBox2 = new GroupBox();
-            txtcantidad = new TextBox();
-            txtprecio = new TextBox();
-            cmbproducto = new ComboBox();
+            btnAgregar = new Button();
+            txtCantidad = new TextBox();
+            txtPrecio = new TextBox();
+            cmbProducto = new ComboBox();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
             label3 = new Label();
-            txtcodigo = new TextBox();
-            groupBox1 = new GroupBox();
-            btnok = new Button();
-            txtsize = new TextBox();
-            groupBox3 = new GroupBox();
-            btneliminar = new Button();
-            txteliminar = new TextBox();
+            txtCodigo = new TextBox();
+            gbEliminar = new GroupBox();
+            btnEliminar = new Button();
+            txtEliminar = new TextBox();
             IstRecorridos = new ListBox();
             label4 = new Label();
             label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            groupBox5.SuspendLayout();
+            gbRecorridos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnsalir).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dtgcompras).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCompra).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             groupBox2.SuspendLayout();
-            groupBox1.SuspendLayout();
-            groupBox3.SuspendLayout();
+            gbEliminar.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(67, 17);
+            pictureBox1.Location = new Point(67, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(182, 136);
+            pictureBox1.Size = new Size(182, 133);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -93,52 +90,52 @@
             pnlArbol.Size = new Size(718, 385);
             pnlArbol.TabIndex = 62;
             // 
-            // groupBox5
+            // gbRecorridos
             // 
-            groupBox5.Controls.Add(button1);
-            groupBox5.Controls.Add(button2);
-            groupBox5.Controls.Add(button3);
-            groupBox5.Font = new Font("Candara", 13.8F, FontStyle.Bold);
-            groupBox5.ForeColor = Color.Black;
-            groupBox5.Location = new Point(651, 176);
-            groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(365, 116);
-            groupBox5.TabIndex = 61;
-            groupBox5.TabStop = false;
-            groupBox5.Text = "Recorridos:";
+            gbRecorridos.Controls.Add(btnPreOrden);
+            gbRecorridos.Controls.Add(btnPosOrden);
+            gbRecorridos.Controls.Add(btnInOrden);
+            gbRecorridos.Font = new Font("Candara", 13.8F, FontStyle.Bold);
+            gbRecorridos.ForeColor = Color.Black;
+            gbRecorridos.Location = new Point(873, 145);
+            gbRecorridos.Name = "gbRecorridos";
+            gbRecorridos.Size = new Size(143, 147);
+            gbRecorridos.TabIndex = 61;
+            gbRecorridos.TabStop = false;
+            gbRecorridos.Text = "Recorridos:";
             // 
-            // button1
+            // btnPreOrden
             // 
-            button1.BackColor = Color.FromArgb(219, 219, 184);
-            button1.ForeColor = Color.FromArgb(14, 47, 86);
-            button1.Location = new Point(240, 45);
-            button1.Name = "button1";
-            button1.Size = new Size(117, 36);
-            button1.TabIndex = 40;
-            button1.Text = "PreOrden";
-            button1.UseVisualStyleBackColor = false;
+            btnPreOrden.BackColor = Color.FromArgb(219, 219, 184);
+            btnPreOrden.ForeColor = Color.FromArgb(14, 47, 86);
+            btnPreOrden.Location = new Point(12, 105);
+            btnPreOrden.Name = "btnPreOrden";
+            btnPreOrden.Size = new Size(121, 36);
+            btnPreOrden.TabIndex = 40;
+            btnPreOrden.Text = "PreOrden";
+            btnPreOrden.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnPosOrden
             // 
-            button2.BackColor = Color.FromArgb(219, 219, 184);
-            button2.ForeColor = Color.FromArgb(14, 47, 86);
-            button2.Location = new Point(114, 45);
-            button2.Name = "button2";
-            button2.Size = new Size(120, 36);
-            button2.TabIndex = 39;
-            button2.Text = "PosOrden";
-            button2.UseVisualStyleBackColor = false;
+            btnPosOrden.BackColor = Color.FromArgb(219, 219, 184);
+            btnPosOrden.ForeColor = Color.FromArgb(14, 47, 86);
+            btnPosOrden.Location = new Point(12, 65);
+            btnPosOrden.Name = "btnPosOrden";
+            btnPosOrden.Size = new Size(121, 36);
+            btnPosOrden.TabIndex = 39;
+            btnPosOrden.Text = "PosOrden";
+            btnPosOrden.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnInOrden
             // 
-            button3.BackColor = Color.FromArgb(219, 219, 184);
-            button3.ForeColor = Color.FromArgb(14, 47, 86);
-            button3.Location = new Point(6, 45);
-            button3.Name = "button3";
-            button3.Size = new Size(102, 36);
-            button3.TabIndex = 38;
-            button3.Text = "InOrden";
-            button3.UseVisualStyleBackColor = false;
+            btnInOrden.BackColor = Color.FromArgb(219, 219, 184);
+            btnInOrden.ForeColor = Color.FromArgb(14, 47, 86);
+            btnInOrden.Location = new Point(12, 27);
+            btnInOrden.Name = "btnInOrden";
+            btnInOrden.Size = new Size(121, 36);
+            btnInOrden.TabIndex = 38;
+            btnInOrden.Text = "InOrden";
+            btnInOrden.UseVisualStyleBackColor = false;
             // 
             // btnsalir
             // 
@@ -149,67 +146,69 @@
             btnsalir.SizeMode = PictureBoxSizeMode.StretchImage;
             btnsalir.TabIndex = 60;
             btnsalir.TabStop = false;
+            btnsalir.Click += btnsalir_Click;
             // 
-            // dtgcompras
+            // dgvCompra
             // 
-            dtgcompras.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgcompras.BackgroundColor = Color.White;
-            dtgcompras.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(14, 47, 86);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dtgcompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dtgcompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgcompras.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
-            dtgcompras.GridColor = Color.FromArgb(17, 141, 240);
-            dtgcompras.Location = new Point(-7, 400);
-            dtgcompras.Name = "dtgcompras";
-            dtgcompras.RowHeadersWidth = 51;
-            dtgcompras.Size = new Size(851, 231);
-            dtgcompras.TabIndex = 59;
+            dgvCompra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCompra.BackgroundColor = Color.White;
+            dgvCompra.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(14, 47, 86);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvCompra.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCompra.Columns.AddRange(new DataGridViewColumn[] { CODIGO, PRODUCTO, PRECIO, CANTIDAD, SUBTOTAL });
+            dgvCompra.GridColor = Color.FromArgb(17, 141, 240);
+            dgvCompra.Location = new Point(-7, 313);
+            dgvCompra.Name = "dgvCompra";
+            dgvCompra.RowHeadersWidth = 51;
+            dgvCompra.Size = new Size(851, 318);
+            dgvCompra.TabIndex = 59;
             // 
-            // Column1
+            // CODIGO
             // 
-            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            Column1.HeaderText = "CODIGO";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.Width = 229;
+            CODIGO.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            CODIGO.HeaderText = "CÓDIGO";
+            CODIGO.MinimumWidth = 6;
+            CODIGO.Name = "CODIGO";
+            CODIGO.Width = 229;
             // 
-            // Column2
+            // PRODUCTO
             // 
-            Column2.HeaderText = "PRODUCTO";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
+            PRODUCTO.HeaderText = "PRODUCTO";
+            PRODUCTO.MinimumWidth = 6;
+            PRODUCTO.Name = "PRODUCTO";
             // 
-            // Column3
+            // PRECIO
             // 
-            Column3.HeaderText = "PRECIO";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
+            PRECIO.HeaderText = "PRECIO";
+            PRECIO.MinimumWidth = 6;
+            PRECIO.Name = "PRECIO";
             // 
-            // Column4
+            // CANTIDAD
             // 
-            Column4.HeaderText = "CANTIDAD";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
+            CANTIDAD.HeaderText = "CANTIDAD";
+            CANTIDAD.MinimumWidth = 6;
+            CANTIDAD.Name = "CANTIDAD";
             // 
-            // Column5
+            // SUBTOTAL
             // 
-            Column5.HeaderText = "SUBTOTAL";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
+            SUBTOTAL.HeaderText = "SUBTOTAL";
+            SUBTOTAL.MinimumWidth = 6;
+            SUBTOTAL.Name = "SUBTOTAL";
             // 
-            // txttotal
+            // txtTotal
             // 
-            txttotal.Location = new Point(312, 655);
-            txttotal.Name = "txttotal";
-            txttotal.Size = new Size(135, 27);
-            txttotal.TabIndex = 58;
+            txtTotal.Location = new Point(312, 655);
+            txtTotal.Name = "txtTotal";
+            txtTotal.ReadOnly = true;
+            txtTotal.Size = new Size(135, 27);
+            txtTotal.TabIndex = 58;
             // 
             // label2
             // 
@@ -235,7 +234,7 @@
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1587, 170);
+            tableLayoutPanel1.Size = new Size(1587, 139);
             tableLayoutPanel1.TabIndex = 56;
             // 
             // label1
@@ -244,53 +243,68 @@
             label1.AutoSize = true;
             label1.Font = new Font("Candara", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(21, 71, 130);
-            label1.Location = new Point(320, 58);
+            label1.Location = new Point(320, 42);
             label1.Name = "label1";
             label1.Size = new Size(456, 54);
             label1.TabIndex = 1;
-            label1.Text = "GESTION DE COMPRAS";
+            label1.Text = "GESTIÓN DE COMPRAS";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(txtcantidad);
-            groupBox2.Controls.Add(txtprecio);
-            groupBox2.Controls.Add(cmbproducto);
+            groupBox2.Controls.Add(btnAgregar);
+            groupBox2.Controls.Add(txtCantidad);
+            groupBox2.Controls.Add(txtPrecio);
+            groupBox2.Controls.Add(cmbProducto);
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(txtcodigo);
+            groupBox2.Controls.Add(txtCodigo);
             groupBox2.Font = new Font("Candara", 13.8F, FontStyle.Bold);
             groupBox2.ForeColor = Color.Black;
-            groupBox2.Location = new Point(-4, 280);
+            groupBox2.Location = new Point(5, 149);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(848, 114);
+            groupBox2.Size = new Size(839, 158);
             groupBox2.TabIndex = 54;
             groupBox2.TabStop = false;
             groupBox2.Text = "Ingresar datos";
             // 
-            // txtcantidad
+            // btnAgregar
             // 
-            txtcantidad.Location = new Point(692, 63);
-            txtcantidad.Name = "txtcantidad";
-            txtcantidad.Size = new Size(148, 36);
-            txtcantidad.TabIndex = 45;
+            btnAgregar.BackColor = Color.FromArgb(219, 219, 184);
+            btnAgregar.Font = new Font("Candara", 13.8F, FontStyle.Bold);
+            btnAgregar.ForeColor = Color.FromArgb(14, 47, 86);
+            btnAgregar.Location = new Point(9, 116);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(105, 36);
+            btnAgregar.TabIndex = 66;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = false;
             // 
-            // txtprecio
+            // txtCantidad
             // 
-            txtprecio.Location = new Point(472, 63);
-            txtprecio.Name = "txtprecio";
-            txtprecio.Size = new Size(167, 36);
-            txtprecio.TabIndex = 44;
+            txtCantidad.Location = new Point(692, 63);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(132, 36);
+            txtCantidad.TabIndex = 45;
             // 
-            // cmbproducto
+            // txtPrecio
             // 
-            cmbproducto.FormattingEnabled = true;
-            cmbproducto.Location = new Point(207, 63);
-            cmbproducto.Name = "cmbproducto";
-            cmbproducto.Size = new Size(225, 36);
-            cmbproducto.TabIndex = 43;
+            txtPrecio.Location = new Point(472, 63);
+            txtPrecio.Name = "txtPrecio";
+            txtPrecio.Size = new Size(167, 36);
+            txtPrecio.TabIndex = 44;
+            // 
+            // cmbProducto
+            // 
+            cmbProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProducto.FormattingEnabled = true;
+            cmbProducto.Items.AddRange(new object[] { "Paracetamol", "Ibuprofeno", "Aspirina", "Omeprazol", "Suero oral", "Alcohol etílico", "Agua oxigenada ", "Gasas estériles", "Gel antibacterial", "Condones", "Pruebas de embarazo", "Termómetros digitales", "Jarabes para la tos", "Banditas adhesivas", "Antidiarreicos", "Colirios", "Algodón" });
+            cmbProducto.Location = new Point(207, 63);
+            cmbProducto.Name = "cmbProducto";
+            cmbProducto.Size = new Size(225, 36);
+            cmbProducto.TabIndex = 43;
             // 
             // label7
             // 
@@ -302,7 +316,6 @@
             label7.Size = new Size(75, 28);
             label7.TabIndex = 42;
             label7.Text = "Precio";
-            label7.Click += label7_Click;
             // 
             // label6
             // 
@@ -335,83 +348,52 @@
             label3.Name = "label3";
             label3.Size = new Size(89, 28);
             label3.TabIndex = 38;
-            label3.Text = "Codigo:";
+            label3.Text = "Código:";
             // 
-            // txtcodigo
+            // txtCodigo
             // 
-            txtcodigo.Location = new Point(9, 63);
-            txtcodigo.Name = "txtcodigo";
-            txtcodigo.Size = new Size(161, 36);
-            txtcodigo.TabIndex = 39;
+            txtCodigo.Location = new Point(9, 63);
+            txtCodigo.Name = "txtCodigo";
+            txtCodigo.Size = new Size(161, 36);
+            txtCodigo.TabIndex = 39;
             // 
-            // groupBox1
+            // gbEliminar
             // 
-            groupBox1.Controls.Add(btnok);
-            groupBox1.Controls.Add(txtsize);
-            groupBox1.Font = new Font("Candara", 13.8F, FontStyle.Bold);
-            groupBox1.ForeColor = Color.Black;
-            groupBox1.Location = new Point(12, 176);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(277, 98);
-            groupBox1.TabIndex = 53;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Tipos de articulos";
+            gbEliminar.Controls.Add(btnEliminar);
+            gbEliminar.Controls.Add(txtEliminar);
+            gbEliminar.Font = new Font("Candara", 13.8F, FontStyle.Bold);
+            gbEliminar.ForeColor = Color.Black;
+            gbEliminar.Location = new Point(1264, 149);
+            gbEliminar.Name = "gbEliminar";
+            gbEliminar.Size = new Size(295, 142);
+            gbEliminar.TabIndex = 55;
+            gbEliminar.TabStop = false;
+            gbEliminar.Text = "Eliminar";
             // 
-            // btnok
+            // btnEliminar
             // 
-            btnok.BackColor = Color.FromArgb(219, 219, 184);
-            btnok.ForeColor = Color.FromArgb(14, 47, 86);
-            btnok.Location = new Point(155, 52);
-            btnok.Name = "btnok";
-            btnok.Size = new Size(94, 36);
-            btnok.TabIndex = 38;
-            btnok.Text = "Ok";
-            btnok.UseVisualStyleBackColor = false;
+            btnEliminar.BackColor = Color.FromArgb(219, 219, 184);
+            btnEliminar.ForeColor = Color.FromArgb(14, 47, 86);
+            btnEliminar.Location = new Point(138, 63);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(102, 37);
+            btnEliminar.TabIndex = 38;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = false;
             // 
-            // txtsize
+            // txtEliminar
             // 
-            txtsize.Location = new Point(18, 52);
-            txtsize.Name = "txtsize";
-            txtsize.Size = new Size(112, 36);
-            txtsize.TabIndex = 39;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(btneliminar);
-            groupBox3.Controls.Add(txteliminar);
-            groupBox3.Font = new Font("Candara", 13.8F, FontStyle.Bold);
-            groupBox3.ForeColor = Color.Black;
-            groupBox3.Location = new Point(1264, 176);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(295, 115);
-            groupBox3.TabIndex = 55;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Eliminar";
-            // 
-            // btneliminar
-            // 
-            btneliminar.BackColor = Color.FromArgb(219, 219, 184);
-            btneliminar.ForeColor = Color.FromArgb(14, 47, 86);
-            btneliminar.Location = new Point(138, 34);
-            btneliminar.Name = "btneliminar";
-            btneliminar.Size = new Size(102, 37);
-            btneliminar.TabIndex = 38;
-            btneliminar.Text = "Eliminar";
-            btneliminar.UseVisualStyleBackColor = false;
-            // 
-            // txteliminar
-            // 
-            txteliminar.Location = new Point(30, 35);
-            txteliminar.Name = "txteliminar";
-            txteliminar.Size = new Size(73, 36);
-            txteliminar.TabIndex = 39;
+            txtEliminar.Location = new Point(30, 64);
+            txtEliminar.Name = "txtEliminar";
+            txtEliminar.Size = new Size(73, 36);
+            txtEliminar.TabIndex = 39;
             // 
             // IstRecorridos
             // 
             IstRecorridos.FormattingEnabled = true;
-            IstRecorridos.Location = new Point(1033, 204);
+            IstRecorridos.Location = new Point(1033, 184);
             IstRecorridos.Name = "IstRecorridos";
-            IstRecorridos.Size = new Size(225, 84);
+            IstRecorridos.Size = new Size(225, 104);
             IstRecorridos.TabIndex = 63;
             // 
             // label4
@@ -419,11 +401,11 @@
             label4.AutoSize = true;
             label4.Font = new Font("Candara", 13.8F, FontStyle.Bold);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(1033, 176);
+            label4.Location = new Point(1033, 145);
             label4.Name = "label4";
-            label4.Size = new Size(121, 28);
+            label4.Size = new Size(103, 28);
             label4.TabIndex = 64;
-            label4.Text = "Recorridos";
+            label4.Text = "Observar";
             // 
             // label9
             // 
@@ -448,29 +430,30 @@
             Controls.Add(label4);
             Controls.Add(IstRecorridos);
             Controls.Add(pnlArbol);
-            Controls.Add(groupBox5);
+            Controls.Add(gbRecorridos);
             Controls.Add(btnsalir);
-            Controls.Add(dtgcompras);
-            Controls.Add(txttotal);
+            Controls.Add(dgvCompra);
+            Controls.Add(txtTotal);
             Controls.Add(label2);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
-            Controls.Add(groupBox3);
+            Controls.Add(gbEliminar);
+            MaximumSize = new Size(1594, 731);
+            MinimumSize = new Size(1594, 731);
             Name = "FormArbolBinario";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormArbolBinario";
+            Load += FormArbolBinario_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            groupBox5.ResumeLayout(false);
+            gbRecorridos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)btnsalir).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dtgcompras).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCompra).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
+            gbEliminar.ResumeLayout(false);
+            gbEliminar.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -479,38 +462,41 @@
 
         private PictureBox pictureBox1;
         private Panel pnlArbol;
-        private GroupBox groupBox5;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private GroupBox gbRecorridos;
+        private Button btnPreOrden;
+        private Button btnPosOrden;
+        private Button btnInOrden;
         private PictureBox btnsalir;
-        private DataGridView dtgcompras;
+        private DataGridView dgvCompra;
+        private TextBox txtTotal;
+        private Label label2;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label label1;
+        private GroupBox groupBox2;
+        private TextBox txtCantidad;
+        private TextBox txtPrecio;
+        private ComboBox cmbProducto;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private Label label3;
+        private TextBox txtCodigo;
+        private GroupBox gbEliminar;
+        private Button btnEliminar;
+        private TextBox txtEliminar;
+        private ListBox IstRecorridos;
+        private Label label4;
+        private Label label9;
+        private Button btnAgregar;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
-        private TextBox txttotal;
-        private Label label2;
-        private TableLayoutPanel tableLayoutPanel1;
-        private Label label1;
-        private GroupBox groupBox2;
-        private TextBox txtcantidad;
-        private TextBox txtprecio;
-        private ComboBox cmbproducto;
-        private Label label7;
-        private Label label6;
-        private Label label5;
-        private Label label3;
-        private TextBox txtcodigo;
-        private GroupBox groupBox1;
-        private Button btnok;
-        private TextBox txtsize;
-        private GroupBox groupBox3;
-        private Button btneliminar;
-        private TextBox txteliminar;
-        private ListBox IstRecorridos;
-        private Label label4;
-        private Label label9;
+        private DataGridViewTextBoxColumn CODIGO;
+        private DataGridViewTextBoxColumn PRODUCTO;
+        private DataGridViewTextBoxColumn PRECIO;
+        private DataGridViewTextBoxColumn CANTIDAD;
+        private DataGridViewTextBoxColumn SUBTOTAL;
     }
 }

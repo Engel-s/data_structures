@@ -1,92 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
-using System.Xml;
 
 namespace Farmacia_VitaCare
 {
     class NodoArbol
     {
-
         public NodoArbol izquierdo { get; set; }
         public NodoArbol derecho { get; set; }
 
-        public double total;
-
-        int coordenadax = 130,
-            coordenaday = 30,
-            coordenadaxder,
-            coordenadayder,
-            elipse = 35;
-
+        public int cantidad;    
         public int nivel { get; set; }
+
+        // Geometria del nodo
+        int coordenadax = 130, coordenaday = 30;
+        int coordenadaxder, coordenadayder;
+        int elipse = 35;
 
         public NodoArbol()
         {
-            total = 0;
+            cantidad = 0;
             izquierdo = null;
             derecho = null;
         }
 
-        public NodoArbol(double dato, NodoArbol izquierdo, NodoArbol derecho, NodoArbol raiz)
+        public NodoArbol(int cant, NodoArbol izq, NodoArbol der)
         {
-            total = dato;
-            this.izquierdo = izquierdo;
-            this.derecho = derecho;
+            cantidad = cant;
+            izquierdo = izq;
+            derecho = der;
         }
 
-        //Ubicar el nodo en la zona correspondiente
-        public void UbicacionNodo(int posX, int posY)
+        // Ubicar el nodo
+        public void UbicacionNodo(int x, int y, int dx, int dy)
         {
-            int auxiliar1,
-                auxiliar2;
+            coordenadaxder = x;  
+            coordenadayder = y;     
 
-            coordenadayder = Convert.ToInt32(posY + elipse / 2);
+            int nextDx = Math.Max(30, dx / 2);
+            int nextY = y + dy;
 
             if (izquierdo != null)
-            {
-                izquierdo.UbicacionNodo(posX, posY + elipse + coordenaday);
-            }
-
-            if ((izquierdo != null) && (derecho != null))
-            {
-                posX += coordenadax;
-            }
+                izquierdo.UbicacionNodo(x - dx, nextY, nextDx, dy);
 
             if (derecho != null)
-            {
-                derecho.UbicacionNodo(posX, posY + elipse + coordenaday);
-            }
-
-            if (izquierdo != null && derecho != null)
-            {
-                coordenadaxder = Convert.ToInt32(izquierdo.coordenadaxder + derecho.coordenadaxder / 2);
-            }
-            else
-                if (izquierdo != null)
-            {
-                auxiliar1 = izquierdo.coordenadaxder;
-                izquierdo.coordenadaxder = coordenadaxder - 80;
-                coordenadaxder = auxiliar1;
-            }
-            else
-                if (derecho != null)
-            {
-                auxiliar2 = derecho.coordenadaxder;
-                derecho.coordenadaxder = coordenadaxder + 80;
-                coordenadaxder = auxiliar2;
-            }
-            else
-            {
-                coordenadaxder = Convert.ToInt32(posX + elipse / 2);
-                posX += elipse;
-            }
+                derecho.UbicacionNodo(x + dx, nextY, nextDx, dy);
         }
 
-        //Dibujar las conexiones entre nodos
+
+        // Conexiones
         public void DibujarConexiones(Graphics g, Pen lapiz)
         {
             if (izquierdo != null)
@@ -100,30 +61,23 @@ namespace Farmacia_VitaCare
                 derecho.DibujarConexiones(g, lapiz);
             }
         }
-        //Dibujar los nodos
-        public void DibujarNodos(Graphics g, Font fuente, Brush color, Brush colorFuente, Pen lapiz, Brush B)
+
+        // Nodos
+        public void DibujarNodos(Graphics g, Font fuente, Brush color, Brush colorFuente, Pen lapiz, Brush borde)
         {
-            Rectangle temp = new Rectangle(Convert.ToInt32(coordenadaxder - elipse /2), Convert.ToInt32(coordenadayder - elipse / 2), elipse, elipse);
+            Rectangle temp = new Rectangle(
+                Convert.ToInt32(coordenadaxder - elipse / 2),
+                Convert.ToInt32(coordenadayder - elipse / 2),
+                elipse, elipse);
 
-            g.FillEllipse(B, temp);
             g.FillEllipse(color, temp);
-            g.DrawEllipse(lapiz, temp);
-            g.FillEllipse(color, temp);
-            g.DrawEllipse(lapiz, temp);
+            g.DrawEllipse(Pens.Black, temp); 
 
-            StringFormat formato = new StringFormat();
-            formato.Alignment = StringAlignment.Center;
-            formato.LineAlignment = StringAlignment.Center;
+            var formato = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            g.DrawString(cantidad.ToString(), fuente, colorFuente, coordenadaxder, coordenadayder, formato);
 
-            g.DrawString(total.ToString(), fuente, colorFuente, coordenadaxder, coordenadayder, formato);
-            if (izquierdo != null)
-            {
-                izquierdo.DibujarNodos(g, fuente, color, colorFuente, lapiz, B);
-            }
-            if (derecho != null)
-            {
-                derecho.DibujarNodos(g, fuente, color, colorFuente, lapiz, B);
-            }
+            if (izquierdo != null) izquierdo.DibujarNodos(g, fuente, color, colorFuente, lapiz, borde);
+            if (derecho != null) derecho.DibujarNodos(g, fuente, color, colorFuente, lapiz, borde);
         }
     }
 }

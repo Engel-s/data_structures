@@ -195,7 +195,7 @@
             label6.Name = "label6";
             label6.Size = new Size(186, 28);
             label6.TabIndex = 37;
-            label6.Text = "Tipos de articulos";
+            label6.Text = "Tipos de artículos";
             // 
             // panelData
             // 
@@ -364,7 +364,7 @@
             label1.Name = "label1";
             label1.Size = new Size(456, 54);
             label1.TabIndex = 1;
-            label1.Text = "GESTION DE COMPRAS";
+            label1.Text = "GESTIÓN DE COMPRAS";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormColaCirulares

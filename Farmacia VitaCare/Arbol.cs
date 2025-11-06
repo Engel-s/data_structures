@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Farmacia_VitaCare
 {
@@ -25,14 +22,10 @@ namespace Farmacia_VitaCare
             this.font = font;
         }
 
-        //Insertar datos
-        public bool Insertar(double total)
+        // Insertar usando cantidad
+        public bool Insertar(int cantidad)
         {
-            NodoArbol temp = new NodoArbol();
-
-            temp.total = total;
-            temp.izquierdo = null;
-            temp.derecho = null;
+            var temp = new NodoArbol { cantidad = cantidad };
 
             if (raiz == null)
             {
@@ -40,97 +33,76 @@ namespace Farmacia_VitaCare
                 temp.nivel = 1;
                 return true;
             }
-            else
+
+            NodoArbol anterior = null;
+            NodoArbol ant = raiz;
+
+            while (ant != null)
             {
-                NodoArbol anterior = null, ant;
-                ant = raiz;
-
-                while (ant != null)
-                {
-                    anterior = ant;
-                    if (total < ant.total)
-                    {
-                        ant = ant.izquierdo;
-                    }
-                    else
-                    {
-                        ant = ant.derecho;
-                    }
-                }
-                if (total < anterior.total)
-                {
-                    temp.nivel++;
-                    anterior.izquierdo = temp;
-                    return true;
-                }
-                else if (total > anterior.total)
-                {
-                    temp.nivel++;
-                    anterior.derecho = temp;
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                anterior = ant;
+                if (cantidad < ant.cantidad) ant = ant.izquierdo;
+                else ant = ant.derecho;
             }
+
+            temp.nivel = (anterior?.nivel ?? 0) + 1;
+
+            if (cantidad < anterior.cantidad) anterior.izquierdo = temp;
+            else anterior.derecho = temp;
+
+            return true;
         }
 
-        //Actualizar arbol
-        public void ActualizarArbol(PaintEventArgs e, Color c)
+        // Refrescar arbol
+        public void ActualizarArbol(PaintEventArgs e, Color fondo)
         {
-            e.Graphics.Clear(c);
+            e.Graphics.Clear(fondo);
             e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+            coordenadax = Math.Max(20, e.ClipRectangle.Width / 2);
+            coordenaday = 25;
+
             nodo = e.Graphics;
-            DibujarArbol(nodo, font, Brushes.White, Brushes.Black, Pens.White, Brushes.Black);
+            DibujarArbol(nodo, font, Brushes.White, Brushes.Black, Pens.Black, Brushes.LightSkyBlue);
         }
 
-        public bool Eliminar(double total)
+        // Eliminar por cantidad
+        public bool Eliminar(int cantidad)
         {
-            raiz = EliminarNodo(raiz, total);
+            raiz = EliminarNodo(raiz, cantidad);
             return encontrado;
         }
 
-        public NodoArbol EliminarNodo(NodoArbol Raiz, double total)
+        private NodoArbol EliminarNodo(NodoArbol Raiz, int cantidad)
         {
             if (Raiz == null)
             {
                 MessageBox.Show("Nodo no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 encontrado = false;
+                return null;
             }
-            else if (total < Raiz.total)
+
+            if (cantidad < Raiz.cantidad)
             {
-                NodoArbol left = EliminarNodo(Raiz.izquierdo, total);
-                Raiz.izquierdo = left;
+                Raiz.izquierdo = EliminarNodo(Raiz.izquierdo, cantidad);
             }
-            else if (total > Raiz.total)
+            else if (cantidad > Raiz.cantidad)
             {
-                NodoArbol right = EliminarNodo(Raiz.derecho, total);
-                Raiz.derecho = right;
+                Raiz.derecho = EliminarNodo(Raiz.derecho, cantidad);
             }
             else
             {
+                // Encontrado
                 NodoArbol aux = Raiz;
+                if (aux.derecho == null) Raiz = aux.izquierdo;
+                else if (aux.izquierdo == null) Raiz = aux.derecho;
+                else aux = Reemplazar(aux);
 
-                if (aux.derecho == null)
-                {
-                    Raiz = aux.izquierdo;
-                }
-                else if (aux.izquierdo == null)
-                {
-                    Raiz = aux.derecho;
-                }
-                else
-                {
-                    aux = Reemplazar(aux);
-                }
                 aux = null;
                 encontrado = true;
             }
             return Raiz;
         }
 
-        //Cambiar nodo al eliminar
+        // Predecesor inorden
         protected NodoArbol Reemplazar(NodoArbol aux)
         {
             NodoArbol temp = aux;
@@ -141,79 +113,69 @@ namespace Farmacia_VitaCare
                 temp = temp2;
                 temp2 = temp2.derecho;
             }
-            aux.total = temp2.total;
+            aux.cantidad = temp2.cantidad;
 
-            if (temp == aux)
-            {
-                temp.izquierdo = temp2.izquierdo;
-            }
-            else
-            {
-                temp.derecho = temp2.izquierdo;
-            }
+            if (temp == aux) temp.izquierdo = temp2.izquierdo;
+            else temp.derecho = temp2.izquierdo;
+
             return temp2;
         }
 
-        //Dibujar el arbol
         public void DibujarArbol(Graphics g, Font fuente, Brush colorRelleno, Brush colorfuente, Pen lapiz, Brush borde)
         {
-            if (raiz == null)
-            {
-                return;
-            }
+            if (raiz == null) return;
 
-            raiz.UbicacionNodo(coordenadax, coordenaday);
-            raiz.DibujarConexiones(g, lapiz);
-            raiz.DibujarNodos(g, fuente, colorRelleno, colorfuente, lapiz, borde);
-        }
+         
+            int w = (int)g.VisibleClipBounds.Width;
+            int xCenter = Math.Max(20, w / 2);
+            int dx = Math.Max(60, w / 4);   
+            int dy = 60;                 
 
-        //Recorrido inorden
-        public void InOrden(ListBox list, Label lbl)
-        {
-            InOrden(raiz, list, lbl);
-        }
-        public void InOrden(NodoArbol temp, ListBox list, Label lbl)
-        {
-            if (temp != null)
-            {
-                lbl.Text = "Recorrido InOrden";
-                InOrden(temp.izquierdo, list, lbl);
-                list.Items.Add(temp.total.ToString());
-                InOrden(temp.derecho, list, lbl);
-            }
+            raiz.UbicacionNodo(xCenter, 80, dx, dy);
+            raiz.DibujarConexiones(g, Pens.Black);
+            raiz.DibujarNodos(g, fuente, colorRelleno, colorfuente, Pens.Black, borde);
         }
 
-        //Recorridos posOrden
-        public void PosOrden(ListBox list, Label lbl)
+        // Recorridos
+        public void InOrden(ListBox list, Label lbl = null) { list.Items.Clear(); InOrden(raiz, list, lbl); }
+        private void InOrden(NodoArbol t, ListBox list, Label lbl)
         {
-            list.Items.Clear();
-            PosOrden(raiz, list, lbl);
-        }
-        public void PosOrden(NodoArbol temp, ListBox list, Label lbl)
-        {
-            if (temp != null)
-            {
-                lbl.Text = "Recorrido PosOrden";
-                PosOrden(temp.izquierdo, list, lbl);
-                PosOrden(temp.derecho, list, lbl);
-                list.Items.Add(temp.total.ToString());
-            }
+            if (t == null) return;
+            lbl?.SetTextThreadSafe("Recorrido InOrden");
+            InOrden(t.izquierdo, list, lbl);
+            list.Items.Add(t.cantidad.ToString());
+            InOrden(t.derecho, list, lbl);
         }
 
-        public void PreOrden(ListBox list, Label lbl)
+        public void PosOrden(ListBox list, Label lbl = null) { list.Items.Clear(); PosOrden(raiz, list, lbl); }
+        private void PosOrden(NodoArbol t, ListBox list, Label lbl)
         {
-            list.Items.Clear();
-            PreOrden(raiz, list, lbl);
+            if (t == null) return;
+            lbl?.SetTextThreadSafe("Recorrido PosOrden");
+            PosOrden(t.izquierdo, list, lbl);
+            PosOrden(t.derecho, list, lbl);
+            list.Items.Add(t.cantidad.ToString());
         }
-        public void PreOrden(NodoArbol temp, ListBox list, Label lbl)
+
+        public void PreOrden(ListBox list, Label lbl = null) { list.Items.Clear(); PreOrden(raiz, list, lbl); }
+        private void PreOrden(NodoArbol t, ListBox list, Label lbl)
         {
-            if (temp != null)
-            {
-                lbl.Text = "Recorrido PreOrden";
-                list.Items.Add(temp.total.ToString());
-                PreOrden(temp.izquierdo, list, lbl);
-                PreOrden(temp.derecho, list, lbl);
-            }
+            if (t == null) return;
+            lbl?.SetTextThreadSafe("Recorrido PreOrden");
+            list.Items.Add(t.cantidad.ToString());
+            PreOrden(t.izquierdo, list, lbl);
+            PreOrden(t.derecho, list, lbl);
+        }
+    }
+
+    // Helper para actualizar Label
+    static class ControlExt
+    {
+        public static void SetTextThreadSafe(this Control c, string text)
+        {
+            if (c == null) return;
+            if (c.InvokeRequired) c.Invoke(new Action(() => c.Text = text));
+            else c.Text = text;
         }
     }
 }
