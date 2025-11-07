@@ -1,6 +1,6 @@
 ﻿namespace Farmacia_VitaCare
 {
-    partial class FormArbolBinario
+    partial class FormArbolBalanceado
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormArbolBinario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormArbolBalanceado));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            tableLayoutPanel1 = new TableLayoutPanel();
             pictureBox1 = new PictureBox();
-            pnlArbol = new Panel();
-            gbRecorridos = new GroupBox();
-            btnPreOrden = new Button();
-            btnPosOrden = new Button();
-            btnInOrden = new Button();
+            label1 = new Label();
+            label9 = new Label();
             btnsalir = new PictureBox();
             dgvCompra = new DataGridView();
             CODIGO = new DataGridViewTextBoxColumn();
@@ -45,8 +43,6 @@
             SUBTOTAL = new DataGridViewTextBoxColumn();
             txtTotal = new TextBox();
             label2 = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            label1 = new Label();
             groupBox2 = new GroupBox();
             btnAgregar = new Button();
             txtCantidad = new TextBox();
@@ -57,20 +53,40 @@
             label5 = new Label();
             label3 = new Label();
             txtCodigo = new TextBox();
+            label4 = new Label();
+            IstRecorridos = new ListBox();
+            pnlArbol = new Panel();
+            gbRecorridos = new GroupBox();
+            btnPreOrden = new Button();
+            btnPosOrden = new Button();
+            btnInOrden = new Button();
             gbEliminar = new GroupBox();
             btnEliminar = new Button();
             txtEliminar = new TextBox();
-            IstRecorridos = new ListBox();
-            label4 = new Label();
-            label9 = new Label();
+            tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            gbRecorridos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnsalir).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCompra).BeginInit();
-            tableLayoutPanel1.SuspendLayout();
             groupBox2.SuspendLayout();
+            gbRecorridos.SuspendLayout();
             gbEliminar.SuspendLayout();
             SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.BackColor = Color.FromArgb(219, 219, 184);
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+            tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(label1, 1, 0);
+            tableLayoutPanel1.Location = new Point(0, -3);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(1582, 137);
+            tableLayoutPanel1.TabIndex = 57;
             // 
             // pictureBox1
             // 
@@ -78,75 +94,46 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(67, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(182, 133);
+            pictureBox1.Size = new Size(182, 131);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // pnlArbol
+            // label1
             // 
-            pnlArbol.Location = new Point(850, 297);
-            pnlArbol.Name = "pnlArbol";
-            pnlArbol.Size = new Size(718, 385);
-            pnlArbol.TabIndex = 62;
+            label1.Anchor = AnchorStyles.Left;
+            label1.AutoSize = true;
+            label1.Font = new Font("Candara", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(21, 71, 130);
+            label1.Location = new Point(319, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(456, 54);
+            label1.TabIndex = 1;
+            label1.Text = "GESTIÓN DE COMPRAS";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // gbRecorridos
+            // label9
             // 
-            gbRecorridos.Controls.Add(btnPreOrden);
-            gbRecorridos.Controls.Add(btnPosOrden);
-            gbRecorridos.Controls.Add(btnInOrden);
-            gbRecorridos.Font = new Font("Candara", 13.8F, FontStyle.Bold);
-            gbRecorridos.ForeColor = Color.Black;
-            gbRecorridos.Location = new Point(873, 145);
-            gbRecorridos.Name = "gbRecorridos";
-            gbRecorridos.Size = new Size(143, 147);
-            gbRecorridos.TabIndex = 61;
-            gbRecorridos.TabStop = false;
-            gbRecorridos.Text = "Recorridos:";
-            // 
-            // btnPreOrden
-            // 
-            btnPreOrden.BackColor = Color.FromArgb(219, 219, 184);
-            btnPreOrden.ForeColor = Color.FromArgb(14, 47, 86);
-            btnPreOrden.Location = new Point(12, 105);
-            btnPreOrden.Name = "btnPreOrden";
-            btnPreOrden.Size = new Size(121, 36);
-            btnPreOrden.TabIndex = 40;
-            btnPreOrden.Text = "PreOrden";
-            btnPreOrden.UseVisualStyleBackColor = false;
-            // 
-            // btnPosOrden
-            // 
-            btnPosOrden.BackColor = Color.FromArgb(219, 219, 184);
-            btnPosOrden.ForeColor = Color.FromArgb(14, 47, 86);
-            btnPosOrden.Location = new Point(12, 65);
-            btnPosOrden.Name = "btnPosOrden";
-            btnPosOrden.Size = new Size(121, 36);
-            btnPosOrden.TabIndex = 39;
-            btnPosOrden.Text = "PosOrden";
-            btnPosOrden.UseVisualStyleBackColor = false;
-            // 
-            // btnInOrden
-            // 
-            btnInOrden.BackColor = Color.FromArgb(219, 219, 184);
-            btnInOrden.ForeColor = Color.FromArgb(14, 47, 86);
-            btnInOrden.Location = new Point(12, 27);
-            btnInOrden.Name = "btnInOrden";
-            btnInOrden.Size = new Size(121, 36);
-            btnInOrden.TabIndex = 38;
-            btnInOrden.Text = "InOrden";
-            btnInOrden.UseVisualStyleBackColor = false;
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label9.AutoSize = true;
+            label9.Font = new Font("Candara", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.Black;
+            label9.Location = new Point(12, 651);
+            label9.Name = "label9";
+            label9.Size = new Size(223, 21);
+            label9.TabIndex = 71;
+            label9.Text = "Elaborado por: Engel Chavarria";
+            label9.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnsalir
             // 
             btnsalir.Image = (Image)resources.GetObject("btnsalir.Image");
-            btnsalir.Location = new Point(789, 637);
+            btnsalir.Location = new Point(790, 628);
             btnsalir.Name = "btnsalir";
-            btnsalir.Size = new Size(55, 44);
+            btnsalir.Size = new Size(61, 44);
             btnsalir.SizeMode = PictureBoxSizeMode.StretchImage;
-            btnsalir.TabIndex = 60;
+            btnsalir.TabIndex = 70;
             btnsalir.TabStop = false;
-            btnsalir.Click += btnsalir_Click;
             // 
             // dgvCompra
             // 
@@ -164,11 +151,11 @@
             dgvCompra.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCompra.Columns.AddRange(new DataGridViewColumn[] { CODIGO, PRODUCTO, PRECIO, CANTIDAD, SUBTOTAL });
             dgvCompra.GridColor = Color.FromArgb(17, 141, 240);
-            dgvCompra.Location = new Point(-1, 313);
+            dgvCompra.Location = new Point(0, 304);
             dgvCompra.Name = "dgvCompra";
             dgvCompra.RowHeadersWidth = 51;
-            dgvCompra.Size = new Size(845, 318);
-            dgvCompra.TabIndex = 59;
+            dgvCompra.Size = new Size(851, 318);
+            dgvCompra.TabIndex = 69;
             // 
             // CODIGO
             // 
@@ -204,51 +191,22 @@
             // 
             // txtTotal
             // 
-            txtTotal.Location = new Point(318, 655);
+            txtTotal.Location = new Point(319, 646);
             txtTotal.Name = "txtTotal";
             txtTotal.ReadOnly = true;
-            txtTotal.Size = new Size(129, 27);
-            txtTotal.TabIndex = 58;
+            txtTotal.Size = new Size(135, 27);
+            txtTotal.TabIndex = 68;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Candara", 13.8F, FontStyle.Bold);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(245, 654);
+            label2.Location = new Point(252, 645);
             label2.Name = "label2";
             label2.Size = new Size(61, 28);
-            label2.TabIndex = 57;
+            label2.TabIndex = 67;
             label2.Text = "Total";
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.BackColor = Color.FromArgb(219, 219, 184);
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
-            tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
-            tableLayoutPanel1.Controls.Add(label1, 1, 0);
-            tableLayoutPanel1.Location = new Point(-7, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1587, 139);
-            tableLayoutPanel1.TabIndex = 56;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Left;
-            label1.AutoSize = true;
-            label1.Font = new Font("Candara", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(21, 71, 130);
-            label1.Location = new Point(320, 42);
-            label1.Name = "label1";
-            label1.Size = new Size(456, 54);
-            label1.TabIndex = 1;
-            label1.Text = "GESTIÓN DE COMPRAS";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // groupBox2
             // 
@@ -263,10 +221,10 @@
             groupBox2.Controls.Add(txtCodigo);
             groupBox2.Font = new Font("Candara", 13.8F, FontStyle.Bold);
             groupBox2.ForeColor = Color.Black;
-            groupBox2.Location = new Point(-1, 149);
+            groupBox2.Location = new Point(0, 140);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(845, 158);
-            groupBox2.TabIndex = 54;
+            groupBox2.Size = new Size(851, 158);
+            groupBox2.TabIndex = 66;
             groupBox2.TabStop = false;
             groupBox2.Text = "Ingresar datos";
             // 
@@ -357,16 +315,89 @@
             txtCodigo.Size = new Size(161, 36);
             txtCodigo.TabIndex = 39;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Candara", 13.8F, FontStyle.Bold);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(1042, 140);
+            label4.Name = "label4";
+            label4.Size = new Size(103, 28);
+            label4.TabIndex = 76;
+            label4.Text = "Observar";
+            // 
+            // IstRecorridos
+            // 
+            IstRecorridos.FormattingEnabled = true;
+            IstRecorridos.Location = new Point(1042, 179);
+            IstRecorridos.Name = "IstRecorridos";
+            IstRecorridos.Size = new Size(225, 104);
+            IstRecorridos.TabIndex = 75;
+            // 
+            // pnlArbol
+            // 
+            pnlArbol.Location = new Point(859, 292);
+            pnlArbol.Name = "pnlArbol";
+            pnlArbol.Size = new Size(718, 385);
+            pnlArbol.TabIndex = 74;
+            // 
+            // gbRecorridos
+            // 
+            gbRecorridos.Controls.Add(btnPreOrden);
+            gbRecorridos.Controls.Add(btnPosOrden);
+            gbRecorridos.Controls.Add(btnInOrden);
+            gbRecorridos.Font = new Font("Candara", 13.8F, FontStyle.Bold);
+            gbRecorridos.ForeColor = Color.Black;
+            gbRecorridos.Location = new Point(882, 140);
+            gbRecorridos.Name = "gbRecorridos";
+            gbRecorridos.Size = new Size(143, 147);
+            gbRecorridos.TabIndex = 73;
+            gbRecorridos.TabStop = false;
+            gbRecorridos.Text = "Recorridos:";
+            // 
+            // btnPreOrden
+            // 
+            btnPreOrden.BackColor = Color.FromArgb(219, 219, 184);
+            btnPreOrden.ForeColor = Color.FromArgb(14, 47, 86);
+            btnPreOrden.Location = new Point(12, 105);
+            btnPreOrden.Name = "btnPreOrden";
+            btnPreOrden.Size = new Size(121, 36);
+            btnPreOrden.TabIndex = 40;
+            btnPreOrden.Text = "PreOrden";
+            btnPreOrden.UseVisualStyleBackColor = false;
+            // 
+            // btnPosOrden
+            // 
+            btnPosOrden.BackColor = Color.FromArgb(219, 219, 184);
+            btnPosOrden.ForeColor = Color.FromArgb(14, 47, 86);
+            btnPosOrden.Location = new Point(12, 65);
+            btnPosOrden.Name = "btnPosOrden";
+            btnPosOrden.Size = new Size(121, 36);
+            btnPosOrden.TabIndex = 39;
+            btnPosOrden.Text = "PosOrden";
+            btnPosOrden.UseVisualStyleBackColor = false;
+            // 
+            // btnInOrden
+            // 
+            btnInOrden.BackColor = Color.FromArgb(219, 219, 184);
+            btnInOrden.ForeColor = Color.FromArgb(14, 47, 86);
+            btnInOrden.Location = new Point(12, 27);
+            btnInOrden.Name = "btnInOrden";
+            btnInOrden.Size = new Size(121, 36);
+            btnInOrden.TabIndex = 38;
+            btnInOrden.Text = "InOrden";
+            btnInOrden.UseVisualStyleBackColor = false;
+            // 
             // gbEliminar
             // 
             gbEliminar.Controls.Add(btnEliminar);
             gbEliminar.Controls.Add(txtEliminar);
             gbEliminar.Font = new Font("Candara", 13.8F, FontStyle.Bold);
             gbEliminar.ForeColor = Color.Black;
-            gbEliminar.Location = new Point(1264, 149);
+            gbEliminar.Location = new Point(1273, 144);
             gbEliminar.Name = "gbEliminar";
             gbEliminar.Size = new Size(295, 142);
-            gbEliminar.TabIndex = 55;
+            gbEliminar.TabIndex = 72;
             gbEliminar.TabStop = false;
             gbEliminar.Text = "Eliminar";
             // 
@@ -388,70 +419,36 @@
             txtEliminar.Size = new Size(73, 36);
             txtEliminar.TabIndex = 39;
             // 
-            // IstRecorridos
-            // 
-            IstRecorridos.FormattingEnabled = true;
-            IstRecorridos.Location = new Point(1033, 184);
-            IstRecorridos.Name = "IstRecorridos";
-            IstRecorridos.Size = new Size(225, 104);
-            IstRecorridos.TabIndex = 63;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Candara", 13.8F, FontStyle.Bold);
-            label4.ForeColor = Color.Black;
-            label4.Location = new Point(1033, 145);
-            label4.Name = "label4";
-            label4.Size = new Size(103, 28);
-            label4.TabIndex = 64;
-            label4.Text = "Observar";
-            // 
-            // label9
-            // 
-            label9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label9.AutoSize = true;
-            label9.Font = new Font("Candara", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.Black;
-            label9.Location = new Point(5, 660);
-            label9.Name = "label9";
-            label9.Size = new Size(223, 21);
-            label9.TabIndex = 65;
-            label9.Text = "Elaborado por: Engel Chavarria";
-            label9.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // FormArbolBinario
+            // FormArbolBalanceado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
             ClientSize = new Size(1576, 684);
-            Controls.Add(label9);
             Controls.Add(label4);
             Controls.Add(IstRecorridos);
             Controls.Add(pnlArbol);
             Controls.Add(gbRecorridos);
+            Controls.Add(gbEliminar);
+            Controls.Add(label9);
             Controls.Add(btnsalir);
             Controls.Add(dgvCompra);
             Controls.Add(txtTotal);
             Controls.Add(label2);
-            Controls.Add(tableLayoutPanel1);
             Controls.Add(groupBox2);
-            Controls.Add(gbEliminar);
+            Controls.Add(tableLayoutPanel1);
             MaximumSize = new Size(1594, 731);
             MinimumSize = new Size(1594, 731);
-            Name = "FormArbolBinario";
+            Name = "FormArbolBalanceado";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormArbolBinario";
-            Load += FormArbolBinario_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            gbRecorridos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)btnsalir).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvCompra).EndInit();
+            Text = "FormArbolBalanceado";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnsalir).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCompra).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            gbRecorridos.ResumeLayout(false);
             gbEliminar.ResumeLayout(false);
             gbEliminar.PerformLayout();
             ResumeLayout(false);
@@ -460,19 +457,21 @@
 
         #endregion
 
+        private TableLayoutPanel tableLayoutPanel1;
         private PictureBox pictureBox1;
-        private Panel pnlArbol;
-        private GroupBox gbRecorridos;
-        private Button btnPreOrden;
-        private Button btnPosOrden;
-        private Button btnInOrden;
+        private Label label1;
+        private Label label9;
         private PictureBox btnsalir;
         private DataGridView dgvCompra;
+        private DataGridViewTextBoxColumn CODIGO;
+        private DataGridViewTextBoxColumn PRODUCTO;
+        private DataGridViewTextBoxColumn PRECIO;
+        private DataGridViewTextBoxColumn CANTIDAD;
+        private DataGridViewTextBoxColumn SUBTOTAL;
         private TextBox txtTotal;
         private Label label2;
-        private TableLayoutPanel tableLayoutPanel1;
-        private Label label1;
         private GroupBox groupBox2;
+        private Button btnAgregar;
         private TextBox txtCantidad;
         private TextBox txtPrecio;
         private ComboBox cmbProducto;
@@ -481,22 +480,15 @@
         private Label label5;
         private Label label3;
         private TextBox txtCodigo;
+        private Label label4;
+        private ListBox IstRecorridos;
+        private Panel pnlArbol;
+        private GroupBox gbRecorridos;
+        private Button btnPreOrden;
+        private Button btnPosOrden;
+        private Button btnInOrden;
         private GroupBox gbEliminar;
         private Button btnEliminar;
         private TextBox txtEliminar;
-        private ListBox IstRecorridos;
-        private Label label4;
-        private Label label9;
-        private Button btnAgregar;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn CODIGO;
-        private DataGridViewTextBoxColumn PRODUCTO;
-        private DataGridViewTextBoxColumn PRECIO;
-        private DataGridViewTextBoxColumn CANTIDAD;
-        private DataGridViewTextBoxColumn SUBTOTAL;
     }
 }

@@ -474,6 +474,7 @@
             binariosBalanceadosToolStripMenuItem.Name = "binariosBalanceadosToolStripMenuItem";
             binariosBalanceadosToolStripMenuItem.Size = new Size(274, 28);
             binariosBalanceadosToolStripMenuItem.Text = "Binarios balanceados";
+            binariosBalanceadosToolStripMenuItem.Click += binariosBalanceadosToolStripMenuItem_Click;
             // 
             // pictureBox2
             // 

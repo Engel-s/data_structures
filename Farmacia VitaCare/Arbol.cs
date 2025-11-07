@@ -168,7 +168,7 @@ namespace Farmacia_VitaCare
         }
     }
 
-    // Helper para actualizar Label
+    // Helper para actualizar label
     static class ControlExt
     {
         public static void SetTextThreadSafe(this Control c, string text)

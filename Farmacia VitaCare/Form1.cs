@@ -288,5 +288,12 @@ namespace Farmacia_VitaCare
             formarbol.Show();
             this.Hide();
         }
+
+        private void binariosBalanceadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormArbolBalanceado formArbolBalanceado = new FormArbolBalanceado();
+            formArbolBalanceado.Show();
+            this.Hide();
+        }
     }
 }
