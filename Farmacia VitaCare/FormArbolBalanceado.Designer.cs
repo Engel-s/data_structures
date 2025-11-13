@@ -134,6 +134,7 @@
             btnsalir.SizeMode = PictureBoxSizeMode.StretchImage;
             btnsalir.TabIndex = 70;
             btnsalir.TabStop = false;
+            btnsalir.Click += btnsalir_Click;
             // 
             // dgvCompra
             // 

@@ -55,10 +55,12 @@ namespace Farmacia_VitaCare
             {
                 if (valorNuevo < Raiz.NodoIzquierdo.valor)
                 {
+                    MessageBox.Show("Rotación simple izquierda (inserción)");
                     Raiz = RotacionIzquierdaSimple(Raiz);
                 }
                 else
                 {
+                    MessageBox.Show("Rotación compuesta izquierda (inserción)");
                     Raiz = RotacionIzquierdaDoble(Raiz);
                 }
             }
@@ -66,10 +68,12 @@ namespace Farmacia_VitaCare
             {
                 if (valorNuevo > Raiz.NodoDerecho.valor)
                 {
+                    MessageBox.Show("Rotación simple derecha (inserción)");
                     Raiz = RotacionDerechaSimple(Raiz);
                 }
                 else
                 {
+                    MessageBox.Show("Rotación compuesta derecha (inserción)");
                     Raiz = RotacionDerechaDoble(Raiz);
                 }
             }
@@ -78,13 +82,13 @@ namespace Farmacia_VitaCare
             return Raiz;
         }
 
-        // Método para obtener que rama es mayor
+        // Metodo para obtener que rama es mayor
         private static int max(int lhs, int rhs)
         {
             return lhs > rhs ? lhs : rhs;
         }
 
-        //Método para obtener la altura
+        //Metodo para obtener la altura
         private static int Alturas(Balanceado Raiz)
         {
             if (Raiz == null)
@@ -98,147 +102,84 @@ namespace Farmacia_VitaCare
         }
 
         Balanceado nodoE, nodoP;
-        //Método para eliminar un nodo en el arbol
-        public Balanceado Eliminar(double valorEliminar, ref Balanceado Raiz)
-        {
-            if (Raiz != null)
-            {
-                if (valorEliminar < Raiz.valor)
-                {
-                    nodoE = Raiz;
-                    Eliminar(valorEliminar, ref Raiz.NodoIzquierdo);
-                }
-                else
-                {
-                    if (valorEliminar > Raiz.valor)
-                    {
-                        nodoE = Raiz;
-                        Eliminar(valorEliminar, ref Raiz.NodoDerecho);
-                    }
-                    else
-                    {
-                        //Posicionado sobre el elemento a eliminar
-                        Balanceado NodoEliminar = Raiz;
-                        if (NodoEliminar.NodoDerecho == null)
-                        {
-                            Raiz = NodoEliminar.NodoIzquierdo;
-                            if (Alturas(nodoE.NodoIzquierdo) - Alturas(nodoE.NodoDerecho) == 2)
-                            {
-                                if (valorEliminar < nodoE.valor)
-                                {
-                                    nodoP = RotacionIzquierdaSimple(nodoE);
-                                }
-                                else
-                                {
-                                    nodoE = RotacionDerechaSimple(nodoE);
-                                }
 
-                            }
-                            if (Alturas(nodoE.NodoDerecho) - Alturas(nodoE.NodoIzquierdo) == 2)
-                            {
-                                if (valorEliminar > nodoE.NodoDerecho.valor)
-                                {
-                                    nodoE = RotacionDerechaSimple(nodoE);
-                                }
-                                else
-                                {
-                                    nodoE = RotacionDerechaDoble(nodoE);
-                                    nodoP = RotacionDerechaSimple(nodoE);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (NodoEliminar.NodoIzquierdo == null)
-                            {
-                                Raiz = NodoEliminar.NodoDerecho;
-                            }
-                            else
-                            {
-                                if (Alturas(Raiz.NodoIzquierdo) - Alturas(Raiz.NodoDerecho) > 0)
-                                {
-                                    Balanceado AuxiliarNodo = null;
-                                    Balanceado Auxiliar = Raiz.NodoIzquierdo;
-                                    bool Bandera = false;
-                                    while (Auxiliar.NodoDerecho != null)
-                                    {
-                                        AuxiliarNodo = Auxiliar;
-                                        Auxiliar = Auxiliar.NodoDerecho;
-                                        Bandera = true;
-                                    }
-                                    Raiz.valor = Auxiliar.valor;
-                                    NodoEliminar = Auxiliar;
-                                    if (Bandera = true)
-                                    {
-                                        AuxiliarNodo.NodoDerecho = Auxiliar.NodoIzquierdo;
-                                    }
-                                    else
-                                    {
-                                        Raiz.NodoIzquierdo = Auxiliar.NodoIzquierdo;
-                                    }
-                                    //Realiza las rotaciones simples o dobles segun el caso
-                                }
-                                else
-                                {
-                                    if (Alturas(Raiz.NodoDerecho) - Alturas(Raiz.NodoIzquierdo) > 0)
-                                    {
-                                        Balanceado AuxiliarNodo = null;
-                                        Balanceado Auxiliar = Raiz.NodoDerecho;
-                                        bool Bandera = false;
-                                        while (Auxiliar.NodoIzquierdo != null)
-                                        {
-                                            AuxiliarNodo = Auxiliar;
-                                            Auxiliar = Auxiliar.NodoIzquierdo;
-                                            Bandera = true;
-                                        }
-                                        Raiz.valor = Auxiliar.valor;
-                                        NodoEliminar = Auxiliar;
-                                        if (Bandera == true)
-                                        {
-                                            AuxiliarNodo.NodoIzquierdo = Auxiliar.NodoDerecho;
-                                        }
-                                        else
-                                        {
-                                            Raiz.NodoDerecho = Auxiliar.NodoDerecho;
-                                        }
-                                    }
-                                    else
-                                    {
-                                        if (Alturas(Raiz.NodoDerecho) - Alturas(Raiz.NodoIzquierdo) == 0)
-                                        {
-                                            Balanceado AuxiliarNodo = null;
-                                            Balanceado Auxiliar = Raiz.NodoIzquierdo;
-                                            bool Bandera = false;
-                                            while (Auxiliar.NodoDerecho != null)
-                                            {
-                                                AuxiliarNodo = Auxiliar;
-                                                Auxiliar = Auxiliar.NodoDerecho;
-                                                Bandera = true;
-                                            }
-                                            Raiz.valor = Auxiliar.valor;
-                                            NodoEliminar = Auxiliar;
-                                            if (Bandera == true)
-                                            {
-                                                AuxiliarNodo.NodoDerecho = Auxiliar.NodoIzquierdo;
-                                            }
-                                            else
-                                            {
-                                                Raiz.NodoIzquierdo = Auxiliar.NodoIzquierdo;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+        //Método para eliminar un nodo en el arbol
+        public Balanceado Eliminar(double valorEliminar, Balanceado raiz)
+        {
+            if (raiz == null) return null;
+
+            if (valorEliminar < raiz.valor)
+            {
+                raiz.NodoIzquierdo = Eliminar(valorEliminar, raiz.NodoIzquierdo);
+            }
+            else if (valorEliminar > raiz.valor)
+            {
+                raiz.NodoDerecho = Eliminar(valorEliminar, raiz.NodoDerecho);
             }
             else
             {
-                MessageBox.Show("Nodo inexistente en el árbol", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Nodo encontrado
+                if (raiz.NodoIzquierdo == null || raiz.NodoDerecho == null)
+                {
+                    raiz = (raiz.NodoIzquierdo != null) ? raiz.NodoIzquierdo : raiz.NodoDerecho;
+                }
+                else
+                {
+                    var sucesor = Minimo(raiz.NodoDerecho);
+                    raiz.valor = sucesor.valor;
+                    raiz.NodoDerecho = Eliminar(sucesor.valor, raiz.NodoDerecho);
+                }
             }
-            return nodoP;
+
+            if (raiz == null) return null;
+
+            // Recalcular altura
+            raiz.altura = max(Alturas(raiz.NodoIzquierdo), Alturas(raiz.NodoDerecho)) + 1;
+
+            // Balancear
+            int balance = Alturas(raiz.NodoIzquierdo) - Alturas(raiz.NodoDerecho);
+
+            // Caso IZQ pesado
+            if (balance > 1)
+            {
+                if (Alturas(raiz.NodoIzquierdo?.NodoIzquierdo) >= Alturas(raiz.NodoIzquierdo?.NodoDerecho))
+                {
+                    MessageBox.Show("Rotación simple izquierda (eliminación)");
+                    return RotacionIzquierdaSimple(raiz);
+                }
+                else
+                {
+                    MessageBox.Show("Rotación compuesta izquierda (eliminación)");
+                    raiz.NodoIzquierdo = RotacionDerechaSimple(raiz.NodoIzquierdo);
+                    return RotacionIzquierdaSimple(raiz);
+                }
+            }
+
+            // DER pesado
+            if (balance < -1)
+            {
+                if (Alturas(raiz.NodoDerecho?.NodoDerecho) >= Alturas(raiz.NodoDerecho?.NodoIzquierdo))
+                {
+                    MessageBox.Show("Rotación simple derecha (eliminación)");
+                    return RotacionDerechaSimple(raiz);
+                }
+                else
+                {
+                    MessageBox.Show("Rotación compuesta derecha (eliminación)");
+                    raiz.NodoDerecho = RotacionIzquierdaSimple(raiz.NodoDerecho);
+                    return RotacionDerechaSimple(raiz);
+                }
+            }
+
+            return raiz;
         }
+
+        private static Balanceado Minimo(Balanceado n)
+        {
+            while (n?.NodoIzquierdo != null) n = n.NodoIzquierdo;
+            return n;
+        }
+
 
         //seccion de funciones de rotaciones
         //Rotación izquierda simple

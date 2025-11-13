@@ -20,16 +20,16 @@ namespace Farmacia_VitaCare
         }
 
         private Compras[] compra = new Compras[0];
-        private DibujaBalanceado _avl;  
+        private DibujaBalanceado _avl;
 
         public FormArbolBalanceado()
         {
             InitializeComponent();
 
-            
+
             _avl = new DibujaBalanceado(pnlArbol, this.Font);
 
-        
+
             btnAgregar.Click += btnAgregar_Click;
             btnEliminar.Click += btnEliminar_Click;
 
@@ -40,17 +40,34 @@ namespace Farmacia_VitaCare
             ConfigurarGrid();
         }
 
-        
+
         private void btnAgregar_Click(object? sender, EventArgs e)
         {
             string codigo = txtCodigo.Text.Trim();
-            string producto = (cmbProducto.SelectedItem ?? cmbProducto.Text ?? "").ToString().Trim();
+            string producto = (cmbProducto.SelectedItem ?? cmbProducto.Text ?? string.Empty).ToString().Trim();
+
+            if (string.IsNullOrWhiteSpace(producto))
+            { MessageBox.Show("Seleccione un producto."); return; }
 
             if (!decimal.TryParse(txtPrecio.Text, out var precio) || precio <= 0m)
             { MessageBox.Show("Precio inválido."); return; }
 
             if (!int.TryParse(txtCantidad.Text, out var cantidad) || cantidad <= 0)
             { MessageBox.Show("Cantidad inválida."); return; }
+
+            bool yaExisteCantidad = dgvCompra.Rows
+                .Cast<DataGridViewRow>()
+                .Any(r => !r.IsNewRow &&
+                          r.Cells["CANTIDAD"]?.Value != null &&
+                          Convert.ToInt32(r.Cells["CANTIDAD"].Value) == cantidad);
+
+            if (yaExisteCantidad)
+            {
+                MessageBox.Show("Esa cantidad ya existe. El árbol balanceado no permite duplicados.");
+                return;
+            }
+
+            _avl.Insertar(cantidad);
 
             var item = new Compras
             {
@@ -66,25 +83,22 @@ namespace Farmacia_VitaCare
 
             dgvCompra.Rows.Add(item.codigo, item.producto, item.precio, item.cantidad, item.subtotal);
 
-           
-            _avl.Insertar(item.cantidad);
             ActualizarTotal();
 
-         
             txtCodigo.Clear();
             txtPrecio.Clear();
             txtCantidad.Clear();
-            txtCodigo.Focus();
             cmbProducto.SelectedIndex = -1;
+            txtCodigo.Focus();
         }
 
-        
+
         private void btnEliminar_Click(object? sender, EventArgs e)
         {
             if (!int.TryParse(txtEliminar.Text, out var cantidadAEliminar))
             { MessageBox.Show("Ingrese una cantidad válida a eliminar."); return; }
 
-         
+
             int fila = -1;
             for (int i = 0; i < dgvCompra.Rows.Count; i++)
             {
@@ -101,7 +115,7 @@ namespace Farmacia_VitaCare
                 Array.Resize(ref compra, compra.Length - 1);
             }
 
-        
+
             _avl.Eliminar(cantidadAEliminar);
             ActualizarTotal();
         }
@@ -123,7 +137,7 @@ namespace Farmacia_VitaCare
             }
         }
 
-        
+
         private void ActualizarTotal()
         {
             var col = dgvCompra.Columns["SUBTOTAL"] ??
@@ -139,6 +153,13 @@ namespace Farmacia_VitaCare
                         total += Convert.ToDecimal(r.Cells[col.Index].Value);
             }
             txtTotal.Text = total.ToString("0.00");
+        }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            Welcome welcomeForm = new Welcome();
+            welcomeForm.Show();
+            this.Close();
         }
     }
 }

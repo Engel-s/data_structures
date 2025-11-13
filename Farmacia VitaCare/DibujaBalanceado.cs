@@ -66,9 +66,30 @@ namespace Farmacia_VitaCare
             _panel.Invalidate();
         }
 
+        public bool Contiene(int valor)
+        {
+            var n = _raiz;
+            while (n != null)
+            {
+                if (valor < n.valor) n = n.NodoIzquierdo;
+                else if (valor > n.valor) n = n.NodoDerecho;
+                else return true; // encontrado
+            }
+            return false;
+        }
+
+        
+        public bool TryInsert(int valor)
+        {
+            if (Contiene(valor)) return false;
+            _raiz = _ops.Insertar(valor, _raiz);  
+            _panel.Invalidate();
+            return true;
+        }
+
         public void Eliminar(double valor)
         {
-            _ops.Eliminar(valor, ref _raiz); 
+            _raiz = _ops.Eliminar(valor, _raiz);
             _panel.Invalidate();
         }
 
